@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  ChartNoAxesCombined,
-  ClipboardCheck,
-  Files,
-  Network,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { CTASection } from "@/components/marketing/cta-section";
-import { FeatureCard } from "@/components/marketing/feature-card";
+import { DashboardMockup } from "@/components/marketing/dashboard-mockup";
+import { FeatureBentoGrid } from "@/components/marketing/feature-bento-grid";
 import { Hero } from "@/components/marketing/hero";
+import { HeroProcessFlow } from "@/components/marketing/hero-process-flow";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { WorkProcess } from "@/components/marketing/work-process";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -33,37 +30,21 @@ export default function Home() {
         ctaLabel="Solicitar diagnóstico"
         secondaryLabel="Ver Gralith Legal"
         secondaryHref="/despachos-juridicos"
+        visual={<HeroProcessFlow />}
       />
 
+      <section className="pb-20">
+        <DashboardMockup />
+      </section>
+
       <section className="px-6 py-20">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.7fr_1.3fr]">
           <SectionHeading
-            eyebrow="Qué resolvemos"
-            title="La operación deja de depender de memoria, mensajes y hojas sueltas."
-            description="Gralith convierte procesos repetitivos en flujos claros: datos en un solo lugar, responsabilidades visibles y seguimiento sin persecución manual."
+            eyebrow="Sistema operativo"
+            title="La operación deja de vivir en memoria, mensajes y hojas sueltas."
+            description="Gralith convierte procesos repetitivos en flujos claros: datos en un solo lugar, responsables visibles y seguimiento sin persecución manual."
           />
-          <div className="grid gap-4 md:grid-cols-2">
-            <FeatureCard
-              icon={Network}
-              title="Centralización"
-              description="Clientes, casos, documentos, tareas y actividad organizada en una fuente de verdad para el equipo."
-            />
-            <FeatureCard
-              icon={ClipboardCheck}
-              title="Ejecución consistente"
-              description="Flujos definidos para que cada etapa tenga responsables, fechas, estados y evidencia."
-            />
-            <FeatureCard
-              icon={ChartNoAxesCombined}
-              title="Visibilidad operativa"
-              description="Indicadores y trazabilidad para detectar bloqueos, carga de trabajo y prioridades reales."
-            />
-            <FeatureCard
-              icon={Files}
-              title="Menos trabajo manual"
-              description="Automatizaciones para capturar, buscar, clasificar y mover información sin fricción administrativa."
-            />
-          </div>
+          <FeatureBentoGrid />
         </div>
       </section>
 
@@ -88,39 +69,9 @@ export default function Home() {
           <SectionHeading
             eyebrow="Cómo trabajamos"
             title="Del diagnóstico al seguimiento operativo."
+            description="Un proceso controlado para pasar de herramientas dispersas a una operación medible, adoptable y trazable."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-4">
-            {[
-              [
-                "01",
-                "Diagnóstico",
-                "Mapeamos procesos, herramientas, dolores y puntos de control.",
-              ],
-              [
-                "02",
-                "Diseño",
-                "Definimos la arquitectura operativa, módulos y datos clave.",
-              ],
-              [
-                "03",
-                "Automatización",
-                "Construimos flujos, integraciones y vistas para el equipo.",
-              ],
-              [
-                "04",
-                "Seguimiento",
-                "Ajustamos con métricas, adopción y mejora continua.",
-              ],
-            ].map(([step, title, description]) => (
-              <div key={step} className="rounded-lg border border-border bg-card p-5">
-                <p className="text-sm font-semibold text-primary">{step}</p>
-                <h3 className="mt-6 text-lg font-medium">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  {description}
-                </p>
-              </div>
-            ))}
-          </div>
+          <WorkProcess />
         </div>
       </section>
 

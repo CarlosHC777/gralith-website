@@ -172,3 +172,44 @@ At the end, report:
 - how to test locally
 - whether `npm run lint` passed
 - whether `npm run build` passed
+
+## Reference repositories
+
+Use these repositories/libraries as reference sources for patterns and component ideas:
+
+- shadcn-ui/ui
+- magicuidesign/magicui
+- shadcn/originui
+- launch-ui/launch-ui
+
+Use them as inspiration for:
+- component structure
+- bento grids
+- dashboard mockups
+- animated process flows
+- app-style cards
+- subtle hover states
+- clean SaaS/website sections
+
+Do not:
+- copy a full template
+- import large template packages
+- add heavy dependencies
+- change the brand direction to match any single reference
+- overuse animations
+
+Priority:
+
+1. shadcn/ui for base components and consistency.
+2. Magic UI for one or two subtle visual effects.
+3. Origin UI for app UI composition ideas.
+4. Launch UI for landing section structure.
+
+Allowed Magic UI-style ideas:
+- Animated Beam for the process flow
+- Bento Grid for features
+- Animated List for activity timeline
+- Border Beam or Shine Border for the main dashboard mockup
+
+Use only what supports the Gralith concept:
+process automation, traceability, order, operational visibility, and legal operations.

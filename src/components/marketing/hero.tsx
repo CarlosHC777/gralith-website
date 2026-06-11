@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ type HeroProps = {
   ctaHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  visual?: ReactNode;
 };
 
 export function Hero({
@@ -21,6 +23,7 @@ export function Hero({
   ctaHref = "/contacto",
   secondaryLabel,
   secondaryHref,
+  visual,
 }: HeroProps) {
   return (
     <section className="px-6 pb-20 pt-20 md:pb-28 md:pt-28">
@@ -56,23 +59,25 @@ export function Hero({
             ) : null}
           </div>
         </div>
-        <div className="border-y border-border py-6">
-          <div className="grid gap-3 text-sm">
-            {[
-              ["Entrada", "WhatsApp, correo, archivos, agenda"],
-              ["Sistema", "Información centralizada y flujos trazables"],
-              ["Operación", "Menos tareas manuales, más visibilidad"],
-            ].map(([label, value]) => (
-              <div
-                key={label}
-                className="grid grid-cols-[6.5rem_1fr] gap-4 rounded-lg border border-border bg-card p-4"
-              >
-                <span className="font-medium text-primary">{label}</span>
-                <span className="text-muted-foreground">{value}</span>
-              </div>
-            ))}
+        {visual ?? (
+          <div className="border-y border-border py-6">
+            <div className="grid gap-3 text-sm">
+              {[
+                ["Entrada", "WhatsApp, correo, archivos, agenda"],
+                ["Sistema", "Información centralizada y flujos trazables"],
+                ["Operación", "Menos tareas manuales, más visibilidad"],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className="grid grid-cols-[6.5rem_1fr] gap-4 rounded-lg border border-border bg-card p-4"
+                >
+                  <span className="font-medium text-primary">{label}</span>
+                  <span className="text-muted-foreground">{value}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
