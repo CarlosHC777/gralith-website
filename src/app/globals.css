@@ -133,3 +133,15 @@
     @apply bg-primary text-primary-foreground;
   }
 }
+
+@keyframes gralith-beam {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scaleX(0.55);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scaleX(1);
+  }
+}
