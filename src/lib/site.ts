@@ -1,6 +1,10 @@
 export const siteConfig = {
   name: "Gralith",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://gralith.com",
+  url: "https://gralith.com.mx",
+  // Temporary deployment URL. Canonical, Open Graph, JSON-LD, robots and sitemap
+  // should keep using `url` as the final public domain.
+  temporaryDeploymentUrl: "https://gralith-website.vercel.app",
+  email: "carloshc@gralith.com.mx",
   description:
     "Gralith diseña sistemas de automatización de procesos para centralizar información, reducir tareas manuales y dar visibilidad operativa.",
 };
