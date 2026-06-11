@@ -79,7 +79,7 @@ export function FeatureBentoGrid() {
         <div
           key={title}
           className={cn(
-            "group rounded-lg border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/35",
+            "group rounded-lg border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/35 md:min-h-52",
             className
           )}
         >

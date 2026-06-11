@@ -58,12 +58,12 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-lg border border-border bg-card p-6 md:p-8"
+      className="rounded-lg border border-border bg-card p-5 sm:p-6 md:p-8"
     >
       <div className="grid gap-5">
         <label className="grid gap-2 text-sm font-medium">
           Nombre
-          <Input name="name" placeholder="Tu nombre" required />
+          <Input name="name" placeholder="Tu nombre" autoComplete="name" required />
         </label>
         <label className="grid gap-2 text-sm font-medium">
           Correo
@@ -71,12 +71,17 @@ export function ContactForm() {
             name="email"
             type="email"
             placeholder="nombre@empresa.com"
+            autoComplete="email"
             required
           />
         </label>
         <label className="grid gap-2 text-sm font-medium">
           Empresa o despacho
-          <Input name="company" placeholder="Nombre de la organización" />
+          <Input
+            name="company"
+            placeholder="Nombre de la organización"
+            autoComplete="organization"
+          />
         </label>
         <label className="grid gap-2 text-sm font-medium">
           ¿Qué quieres automatizar?
@@ -92,11 +97,14 @@ export function ContactForm() {
           size="lg"
           className="h-11 rounded-md"
           disabled={state === "loading"}
+          aria-busy={state === "loading"}
         >
           {state === "loading" ? "Enviando..." : "Enviar solicitud"}
         </Button>
         {feedback ? (
           <p
+            role={state === "error" ? "alert" : "status"}
+            aria-live="polite"
             className={
               state === "success"
                 ? "text-sm text-primary"

@@ -22,11 +22,20 @@ export const metadata: Metadata = {
     siteName: "Gralith",
     locale: "es_MX",
     type: "website",
+    images: [
+      {
+        url: absoluteUrl("/opengraph-image"),
+        width: 1200,
+        height: 630,
+        alt: "Gralith - Automatización de procesos",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Gralith | Automatización de procesos",
     description: siteConfig.description,
+    images: [absoluteUrl("/opengraph-image")],
   },
 };
 
@@ -41,11 +50,24 @@ export default function RootLayout({
       "@type": "Organization",
       name: "Gralith",
       url: siteConfig.url,
+      email: siteConfig.email,
       description: siteConfig.description,
     },
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebSite",
+      name: "Gralith",
+      url: siteConfig.url,
+      description: siteConfig.description,
+      publisher: {
+        "@type": "Organization",
+        name: "Gralith",
+        url: siteConfig.url,
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
       name: "Gralith Legal",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
@@ -56,6 +78,7 @@ export default function RootLayout({
         "@type": "Organization",
         name: "Gralith",
         url: siteConfig.url,
+        email: siteConfig.email,
       },
     },
   ];

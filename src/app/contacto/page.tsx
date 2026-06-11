@@ -1,22 +1,20 @@
-import type { Metadata } from "next";
 import { Mail, MessageSquareText } from "lucide-react";
 
 import { ContactForm } from "@/components/marketing/contact/contact-form";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contacto",
+export const metadata = createPageMetadata({
+  title: "Contacto y diagnóstico operativo",
   description:
-    "Solicita un diagnóstico con Gralith para automatizar procesos y ordenar la operación de tu equipo.",
-  alternates: {
-    canonical: "/contacto",
-  },
-};
+    "Contacta a Gralith para solicitar un diagnóstico de automatización de procesos y ordenar la operación de tu equipo.",
+  path: "/contacto",
+});
 
 export default function ContactPage() {
   return (
-    <section className="px-6 py-20 md:py-28">
+    <section className="px-4 py-16 sm:px-6 md:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <SectionHeading

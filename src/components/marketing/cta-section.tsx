@@ -20,7 +20,7 @@ export function CTASection({
   className,
 }: CTASectionProps) {
   return (
-    <section className={cn("px-6 py-20 md:py-28", className)}>
+    <section className={cn("px-4 py-16 sm:px-6 md:py-28", className)}>
       <div className="mx-auto grid max-w-6xl gap-8 border-y border-border py-12 md:grid-cols-[1fr_auto] md:items-center">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-normal text-foreground md:text-4xl">
@@ -30,7 +30,7 @@ export function CTASection({
             {description}
           </p>
         </div>
-        <Button asChild size="lg" className="h-11 rounded-md px-5">
+        <Button asChild size="lg" className="h-11 w-full rounded-md px-5 sm:w-auto">
           <Link href={href}>
             {ctaLabel}
             <ArrowRight data-icon="inline-end" className="size-4" />
