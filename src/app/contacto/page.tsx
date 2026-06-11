@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Mail, MessageSquareText } from "lucide-react";
 
+import { ContactForm } from "@/components/marketing/contact/contact-form";
 import { SectionHeading } from "@/components/marketing/section-heading";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -43,38 +41,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <form
-          action={`mailto:${siteConfig.email}`}
-          method="post"
-          encType="text/plain"
-          className="rounded-lg border border-border bg-card p-6 md:p-8"
-        >
-          <div className="grid gap-5">
-            <label className="grid gap-2 text-sm font-medium">
-              Nombre
-              <Input name="name" placeholder="Tu nombre" />
-            </label>
-            <label className="grid gap-2 text-sm font-medium">
-              Correo
-              <Input name="email" type="email" placeholder="nombre@empresa.com" />
-            </label>
-            <label className="grid gap-2 text-sm font-medium">
-              Empresa o despacho
-              <Input name="company" placeholder="Nombre de la organización" />
-            </label>
-            <label className="grid gap-2 text-sm font-medium">
-              ¿Qué quieres automatizar?
-              <Textarea
-                name="message"
-                placeholder="Describe el proceso, herramientas actuales y principal dolor operativo."
-                className="min-h-36"
-              />
-            </label>
-            <Button type="submit" size="lg" className="h-11 rounded-md">
-              Enviar solicitud
-            </Button>
-          </div>
-        </form>
+        <ContactForm />
       </div>
     </section>
   );
