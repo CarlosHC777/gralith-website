@@ -11,7 +11,7 @@ const navItems = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/92 backdrop-blur">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-3" aria-label="Gralith">
           <span className="flex size-8 items-center justify-center rounded-md bg-primary text-sm font-semibold text-primary-foreground">
             G
@@ -31,8 +31,11 @@ export function Navbar() {
             </Link>
           ))}
         </div>
-        <Button asChild size="sm" className="rounded-md">
-          <Link href="/contacto">Solicitar diagnóstico</Link>
+        <Button asChild size="sm" className="rounded-md px-2.5 sm:px-3">
+          <Link href="/contacto">
+            <span className="sm:hidden">Diagnóstico</span>
+            <span className="hidden sm:inline">Solicitar diagnóstico</span>
+          </Link>
         </Button>
       </nav>
     </header>

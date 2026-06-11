@@ -39,8 +39,8 @@ function StatusBadge({ status }: { status: string }) {
 
 export function DashboardMockup() {
   return (
-    <div className="relative mx-auto max-w-6xl px-6">
-      <div className="absolute inset-x-12 top-16 h-32 rounded-full bg-primary/8 blur-3xl" />
+    <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="absolute inset-x-8 top-16 h-32 rounded-full bg-primary/8 blur-3xl" />
       <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_90px_-60px_var(--primary)]">
         <div className="grid min-h-[420px] md:grid-cols-[13rem_1fr]">
           <aside className="hidden border-r border-border bg-secondary/45 p-4 md:block">
@@ -71,7 +71,7 @@ export function DashboardMockup() {
             </div>
           </aside>
 
-          <div className="p-4 md:p-6">
+          <div className="min-w-0 p-4 md:p-6">
             <div className="flex flex-col gap-4 border-b border-border pb-5 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -81,9 +81,9 @@ export function DashboardMockup() {
                   Expedientes y actividad
                 </h2>
               </div>
-              <div className="flex min-h-10 items-center gap-2 rounded-md border border-border bg-background px-3 text-sm text-muted-foreground md:w-72">
+              <div className="flex min-h-10 min-w-0 items-center gap-2 rounded-md border border-border bg-background px-3 text-sm text-muted-foreground md:w-72">
                 <Search className="size-4" aria-hidden="true" />
-                Buscar cliente, expediente o documento
+                <span className="truncate">Buscar cliente, expediente o documento</span>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ export function DashboardMockup() {
             <div className="grid gap-4 lg:grid-cols-[1.3fr_0.7fr]">
               <div className="overflow-hidden rounded-lg border border-border">
                 <div className="overflow-x-auto">
-                  <div className="min-w-[620px]">
+                  <div className="min-w-[560px] sm:min-w-[620px]">
                     <div className="grid grid-cols-[0.75fr_1.25fr_1fr_0.6fr] gap-3 border-b border-border bg-secondary/45 px-4 py-3 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
                       <span>ID</span>
                       <span>Asunto</span>

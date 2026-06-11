@@ -26,7 +26,7 @@ export function Hero({
   visual,
 }: HeroProps) {
   return (
-    <section className="px-6 pb-20 pt-20 md:pb-28 md:pt-28">
+    <section className="px-4 pb-16 pt-14 sm:px-6 md:pb-28 md:pt-28">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div>
           {eyebrow ? (
@@ -34,14 +34,14 @@ export function Hero({
               {eyebrow}
             </p>
           ) : null}
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-normal text-foreground md:text-6xl">
+          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.06] tracking-normal text-foreground sm:text-5xl md:text-6xl md:leading-[1.02]">
             {title}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
             {description}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="h-11 rounded-md px-5">
+            <Button asChild size="lg" className="h-11 w-full rounded-md px-5 sm:w-auto">
               <Link href={ctaHref}>
                 {ctaLabel}
                 <ArrowRight data-icon="inline-end" className="size-4" />
@@ -52,7 +52,7 @@ export function Hero({
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-11 rounded-md px-5"
+                className="h-11 w-full rounded-md px-5 sm:w-auto"
               >
                 <Link href={secondaryHref}>{secondaryLabel}</Link>
               </Button>
@@ -69,7 +69,7 @@ export function Hero({
               ].map(([label, value]) => (
                 <div
                   key={label}
-                  className="grid grid-cols-[6.5rem_1fr] gap-4 rounded-lg border border-border bg-card p-4"
+                  className="grid gap-2 rounded-lg border border-border bg-card p-4 sm:grid-cols-[6.5rem_1fr] sm:gap-4"
                 >
                   <span className="font-medium text-primary">{label}</span>
                   <span className="text-muted-foreground">{value}</span>

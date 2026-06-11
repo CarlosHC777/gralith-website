@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Activity,
   CalendarDays,
@@ -14,15 +13,14 @@ import { CTASection } from "@/components/marketing/cta-section";
 import { FeatureCard } from "@/components/marketing/feature-card";
 import { Hero } from "@/components/marketing/hero";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Automatización operativa para despachos jurídicos",
+export const metadata = createPageMetadata({
+  title: "Automatización para despachos jurídicos",
   description:
-    "Gralith Legal centraliza clientes, expedientes, documentos, agenda, búsqueda, actividad y auditoría para despachos jurídicos.",
-  alternates: {
-    canonical: "/despachos-juridicos",
-  },
-};
+    "Gralith Legal es software para despachos jurídicos: centraliza expedientes legales, documentos, agenda, búsqueda, actividad y auditoría.",
+  path: "/despachos-juridicos",
+});
 
 const modules = [
   {
@@ -85,13 +83,13 @@ export default function LegalPage() {
         ctaLabel="Solicitar demo"
       />
 
-      <section className="px-6 py-20">
+      <section className="px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2">
-          <div className="rounded-lg border border-border bg-card p-8">
+          <div className="rounded-lg border border-border bg-card p-6 md:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
               Problema
             </p>
-            <h2 className="mt-5 text-3xl font-semibold tracking-normal">
+            <h2 className="mt-5 text-2xl font-semibold tracking-normal md:text-3xl">
               La información crítica vive entre WhatsApp, Drive, Excel, correos
               y documentos dispersos.
             </h2>
@@ -101,11 +99,11 @@ export default function LegalPage() {
               difíciles de auditar.
             </p>
           </div>
-          <div className="rounded-lg border border-border bg-primary p-8 text-primary-foreground">
+          <div className="rounded-lg border border-border bg-primary p-6 text-primary-foreground md:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-80">
               Solución
             </p>
-            <h2 className="mt-5 text-3xl font-semibold tracking-normal">
+            <h2 className="mt-5 text-2xl font-semibold tracking-normal md:text-3xl">
               Clientes, expedientes, documentos, agenda, búsqueda, actividad y
               auditoría en un solo sistema.
             </h2>
@@ -117,7 +115,7 @@ export default function LegalPage() {
         </div>
       </section>
 
-      <section className="bg-secondary/55 px-6 py-20">
+      <section className="bg-secondary/55 px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             eyebrow="Módulos"

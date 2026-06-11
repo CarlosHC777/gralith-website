@@ -1,19 +1,17 @@
-import type { Metadata } from "next";
 import { DatabaseZap, GitBranch, ListChecks, MonitorCheck } from "lucide-react";
 
 import { CTASection } from "@/components/marketing/cta-section";
 import { FeatureCard } from "@/components/marketing/feature-card";
 import { Hero } from "@/components/marketing/hero";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Automatización de procesos",
+export const metadata = createPageMetadata({
+  title: "Automatización de procesos y flujos de trabajo",
   description:
-    "Diseño de sistemas, flujos e integraciones para automatizar procesos operativos en equipos profesionales.",
-  alternates: {
-    canonical: "/automatizacion-de-procesos",
-  },
-};
+    "Diseño de sistemas, centralización operativa e integraciones para automatizar procesos y flujos de trabajo en equipos profesionales.",
+  path: "/automatizacion-de-procesos",
+});
 
 export default function AutomationPage() {
   return (
@@ -25,7 +23,7 @@ export default function AutomationPage() {
         ctaLabel="Solicitar diagnóstico"
       />
 
-      <section className="px-6 py-20">
+      <section className="px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             eyebrow="Enfoque"
@@ -57,7 +55,7 @@ export default function AutomationPage() {
         </div>
       </section>
 
-      <section className="bg-secondary/55 px-6 py-20">
+      <section className="bg-secondary/55 px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
           {[
             [
