@@ -42,10 +42,13 @@ export async function POST(request: Request) {
   const email = getString(payload.email);
   const company = getString(payload.company);
   const message = getString(payload.message);
+  const subject = name
+    ? `Nuevo contacto desde gralith.com.mx — ${name}`
+    : "Nuevo contacto desde gralith.com.mx";
 
-  if (!name || !email || !message) {
+  if (!email || !message) {
     return Response.json(
-      { message: "Nombre, correo y mensaje son obligatorios." },
+      { message: "Correo y mensaje son obligatorios." },
       { status: 400 }
     );
   }
@@ -65,7 +68,7 @@ export async function POST(request: Request) {
   }
 
   const lead = [
-    ["Nombre", name],
+    ["Nombre", name || "No especificado"],
     ["Email", email],
     ["Empresa o despacho", company || "No especificado"],
     ["Mensaje", message],
@@ -74,7 +77,7 @@ export async function POST(request: Request) {
   const text = lead.map(([label, value]) => `${label}: ${value}`).join("\n\n");
   const html = `
     <div style="font-family: Arial, sans-serif; color: #1f1b1a; line-height: 1.55;">
-      <h1 style="font-size: 20px; margin: 0 0 18px;">Nuevo lead desde Gralith</h1>
+      <h1 style="font-size: 20px; margin: 0 0 18px;">${escapeHtml(subject)}</h1>
       ${lead
         .map(
           ([label, value]) => `
@@ -95,7 +98,7 @@ export async function POST(request: Request) {
       from: "Gralith <leads@gralith.com.mx>",
       to: siteConfig.email,
       replyTo: email,
-      subject: "Nuevo lead desde Gralith",
+      subject,
       text,
       html,
     });
