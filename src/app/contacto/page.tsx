@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -28,7 +29,9 @@ export default function ContactPage() {
           <div className="mt-10 space-y-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-3">
               <Mail className="size-4 text-primary" aria-hidden="true" />
-              contacto@gralith.com
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">
+                {siteConfig.email}
+              </a>
             </div>
             <div className="flex items-center gap-3">
               <MessageSquareText
@@ -40,7 +43,12 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <form className="rounded-lg border border-border bg-card p-6 md:p-8">
+        <form
+          action={`mailto:${siteConfig.email}`}
+          method="post"
+          encType="text/plain"
+          className="rounded-lg border border-border bg-card p-6 md:p-8"
+        >
           <div className="grid gap-5">
             <label className="grid gap-2 text-sm font-medium">
               Nombre
