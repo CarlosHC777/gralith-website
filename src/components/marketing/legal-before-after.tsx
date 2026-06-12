@@ -25,7 +25,7 @@ export function LegalBeforeAfter() {
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           Antes
         </p>
-        <h3 className="mt-3 text-2xl font-semibold tracking-normal">
+        <h3 className="mt-3 font-heading text-2xl font-semibold tracking-normal">
           Trabajo repartido entre herramientas y memoria
         </h3>
         <div className="mt-6 grid gap-3">
@@ -42,7 +42,7 @@ export function LegalBeforeAfter() {
         <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-80">
           Con Gralith Legal
         </p>
-        <h3 className="mt-3 text-2xl font-semibold tracking-normal">
+        <h3 className="mt-3 font-heading text-2xl font-semibold tracking-normal">
           Un sistema operativo para ver qué pasa en cada asunto
         </h3>
         <div className="mt-6 grid gap-3">

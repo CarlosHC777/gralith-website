@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -13,12 +14,22 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/92 backdrop-blur">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-3" aria-label="Gralith">
-          <span className="flex size-8 items-center justify-center rounded-md bg-primary text-sm font-semibold text-primary-foreground">
-            G
-          </span>
-          <span className="text-sm font-semibold tracking-normal text-foreground">
-            Gralith
-          </span>
+          <Image
+            src="/brand/gralith-mark.png"
+            alt=""
+            width={32}
+            height={32}
+            className="size-8 object-contain md:hidden"
+            priority
+          />
+          <Image
+            src="/brand/gralith-logo-horizontal.png"
+            alt="Gralith"
+            width={142}
+            height={80}
+            className="hidden h-10 w-auto object-contain md:block"
+            priority
+          />
         </Link>
         <div className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (

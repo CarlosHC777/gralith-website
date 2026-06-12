@@ -65,11 +65,11 @@ export function LegalDashboardMockup() {
           ))}
         </div>
 
-        <div className="grid gap-4 xl:grid-cols-[1.35fr_0.65fr]">
+        <div className="grid gap-4 xl:grid-cols-[1.45fr_0.55fr]">
           <div className="overflow-hidden rounded-lg border border-border">
-            <div className="overflow-x-auto">
-              <div className="min-w-[760px]">
-                <div className="grid grid-cols-[0.7fr_1fr_1.2fr_0.8fr_0.65fr] gap-3 border-b border-border bg-secondary/45 px-4 py-3 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+            <div className="overflow-x-auto lg:overflow-visible">
+              <div className="min-w-[720px] lg:min-w-0">
+                <div className="grid grid-cols-[0.7fr_1fr_1.2fr_0.75fr_0.75fr] gap-3 border-b border-border bg-secondary/45 px-4 py-3 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
                   <span>ID</span>
                   <span>Materia</span>
                   <span>Estado</span>
@@ -79,7 +79,7 @@ export function LegalDashboardMockup() {
                 {cases.map(([id, matter, status, owner, nextDate]) => (
                   <div
                     key={id}
-                    className="grid grid-cols-[0.7fr_1fr_1.2fr_0.8fr_0.65fr] items-center gap-3 border-b border-border px-4 py-4 text-sm last:border-b-0"
+                    className="grid grid-cols-[0.7fr_1fr_1.2fr_0.75fr_0.75fr] items-center gap-3 border-b border-border px-4 py-4 text-sm last:border-b-0"
                   >
                     <span className="font-medium text-primary">{id}</span>
                     <span>{matter}</span>

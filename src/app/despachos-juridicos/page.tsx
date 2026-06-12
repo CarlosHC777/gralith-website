@@ -100,7 +100,7 @@ const process = [
 ];
 
 const audiences = [
-  "Despachos pequeños y medianos que quieren ordenar su operación.",
+  "Despachos que quieren ordenar su operación.",
   "Equipos jurídicos con varios expedientes activos y múltiples responsables.",
   "Áreas que manejan muchos documentos, versiones y fechas críticas.",
   "Responsables que necesitan visibilidad sin cambiar todo de golpe.",
@@ -245,7 +245,7 @@ export default function LegalPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
               Principios de trabajo
             </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-normal">
+            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-normal">
               Tecnología con criterio operativo.
             </h2>
             <div className="mt-8 grid gap-4">
@@ -265,8 +265,8 @@ export default function LegalPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
               Siguiente paso
             </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-normal md:text-4xl">
-              Empieza con un diagnóstico operativo gratuito.
+            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-normal md:text-4xl">
+              Agenda un diagnóstico operativo gratuito.
             </h2>
             <p className="mt-4 text-base leading-7 text-muted-foreground">
               Revisamos el flujo actual de tu despacho y detectamos oportunidades concretas
@@ -277,7 +277,7 @@ export default function LegalPage() {
           <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
             <Button asChild size="lg" className="h-11 w-full rounded-md px-5 sm:w-auto">
               <Link href="/contacto">
-                Solicitar diagnóstico
+                Agendar diagnóstico
                 <ArrowRight data-icon="inline-end" className="size-4" />
               </Link>
             </Button>
@@ -287,7 +287,7 @@ export default function LegalPage() {
               size="lg"
               className="h-11 w-full rounded-md px-5 sm:w-auto"
             >
-              <a href={`mailto:${siteConfig.email}`}>Escribir a {siteConfig.email}</a>
+              <a href={`mailto:${siteConfig.email}`}>Escribir por correo</a>
             </Button>
           </div>
         </div>

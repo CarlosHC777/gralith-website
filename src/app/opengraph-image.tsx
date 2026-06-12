@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "Gralith - Automatización de procesos";
 export const size = {
@@ -7,7 +9,12 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function Image() {
+export default async function Image() {
+  const mark = await readFile(
+    join(process.cwd(), "public/brand/gralith-mark.png")
+  );
+  const markSrc = `data:image/png;base64,${mark.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -33,20 +40,13 @@ export default function Image() {
             fontWeight: 700,
           }}
         >
-          <div
-            style={{
-              width: "56px",
-              height: "56px",
-              borderRadius: "12px",
-              background: "#641f27",
-              color: "#fbfaf7",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            G
-          </div>
+          <img
+            src={markSrc}
+            alt=""
+            width="56"
+            height="56"
+            style={{ width: "56px", height: "56px", objectFit: "contain" }}
+          />
           Gralith
         </div>
 
