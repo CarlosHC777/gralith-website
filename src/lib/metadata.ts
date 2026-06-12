@@ -6,17 +6,19 @@ type PageMetadata = {
   title: string;
   description: string;
   path: string;
+  absoluteTitle?: boolean;
 };
 
 export function createPageMetadata({
   title,
   description,
   path,
+  absoluteTitle = false,
 }: PageMetadata): Metadata {
   const url = absoluteUrl(path);
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical: path,
