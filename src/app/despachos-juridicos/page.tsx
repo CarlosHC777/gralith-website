@@ -100,7 +100,7 @@ const process = [
 ];
 
 const audiences = [
-  "Despachos que quieren ordenar su operación.",
+  "Despachos pequeños y medianos que quieren ordenar su operación.",
   "Equipos jurídicos con varios expedientes activos y múltiples responsables.",
   "Áreas que manejan muchos documentos, versiones y fechas críticas.",
   "Responsables que necesitan visibilidad sin cambiar todo de golpe.",
