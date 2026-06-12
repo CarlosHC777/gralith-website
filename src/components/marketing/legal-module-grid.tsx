@@ -23,7 +23,6 @@ const modules: Array<{
     description:
       "Mantén datos de clientes y relaciones asociadas al expediente en un solo lugar.",
     icon: Users,
-    className: "md:col-span-2",
   },
   {
     title: "Expedientes",
@@ -54,7 +53,6 @@ const modules: Array<{
     description:
       "Visualiza cambios, movimientos y acciones relevantes dentro del expediente.",
     icon: Activity,
-    className: "md:col-span-2",
   },
   {
     title: "Roles y permisos",
@@ -67,7 +65,6 @@ const modules: Array<{
     description:
       "Convierte pendientes y avances en un flujo más claro para responsables.",
     icon: FileSearch,
-    className: "md:col-span-2",
   },
 ];
 

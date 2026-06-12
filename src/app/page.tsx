@@ -23,6 +23,7 @@ export default function Home() {
     <>
       <Hero
         eyebrow="Gralith"
+        showBrandLogo
         title="Automatización de procesos para equipos profesionales"
         description="Diseñamos sistemas operativos internos para centralizar información, reducir tareas manuales y dar visibilidad real a la operación diaria."
         ctaLabel="Solicitar diagnóstico"
