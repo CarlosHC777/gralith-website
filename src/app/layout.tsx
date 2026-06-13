@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 
-import { Footer } from "@/components/marketing/footer";
-import { Navbar } from "@/components/marketing/navbar";
+import { Footer } from "@/components/site/footer";
+import { Navbar } from "@/components/site/navbar";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 

@@ -1,4 +1,4 @@
-import { SectionReveal } from "@/components/marketing/section-reveal";
+import { SectionReveal } from "@/components/motion/section-reveal";
 
 const steps = [
   [

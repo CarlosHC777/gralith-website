@@ -9,8 +9,8 @@ import {
 } from "lucide-react";
 
 import { GralithHexagonBackground } from "@/components/marketing/backgrounds/gralith-hexagon-background";
-import { SectionHeading } from "@/components/marketing/section-heading";
-import { SectionReveal } from "@/components/marketing/section-reveal";
+import { SectionHeading } from "@/components/marketing/shared/section-heading";
+import { SectionReveal } from "@/components/motion/section-reveal";
 
 const scatteredInputs = [
   { label: "WhatsApp", detail: "instrucciones y avances", icon: MessageSquareText },

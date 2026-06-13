@@ -1,6 +1,6 @@
 import { Check, Minus } from "lucide-react";
 
-import { SectionReveal } from "@/components/marketing/section-reveal";
+import { SectionReveal } from "@/components/motion/section-reveal";
 
 const before = [
   "WhatsApp para seguimiento",
