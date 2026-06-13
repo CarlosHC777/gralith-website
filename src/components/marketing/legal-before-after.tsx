@@ -1,5 +1,7 @@
 import { Check, Minus } from "lucide-react";
 
+import { SectionReveal } from "@/components/marketing/section-reveal";
+
 const before = [
   "WhatsApp para seguimiento",
   "Drive para documentos",
@@ -21,7 +23,7 @@ const after = [
 export function LegalBeforeAfter() {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
-      <div className="rounded-lg border border-border bg-card p-5 md:p-6">
+      <SectionReveal className="rounded-lg border border-border bg-card p-5 md:p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           Antes
         </p>
@@ -36,9 +38,12 @@ export function LegalBeforeAfter() {
             </div>
           ))}
         </div>
-      </div>
+      </SectionReveal>
 
-      <div className="rounded-lg border border-primary/25 bg-primary p-5 text-primary-foreground md:p-6">
+      <SectionReveal
+        delay={120}
+        className="rounded-lg border border-primary/25 bg-primary p-5 text-primary-foreground md:p-6"
+      >
         <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-80">
           Con Gralith Legal
         </p>
@@ -53,7 +58,7 @@ export function LegalBeforeAfter() {
             </div>
           ))}
         </div>
-      </div>
+      </SectionReveal>
     </div>
   );
 }

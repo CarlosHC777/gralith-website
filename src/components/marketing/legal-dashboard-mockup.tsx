@@ -1,5 +1,8 @@
 import { Activity, CalendarDays, Search, ShieldCheck } from "lucide-react";
 
+import { GralithHexagonBackground } from "@/components/marketing/backgrounds/gralith-hexagon-background";
+import { SectionReveal } from "@/components/marketing/section-reveal";
+
 const cases = [
   ["CIV-204", "Arrendamiento", "En seguimiento", "Ana R.", "18 Jun"],
   ["MER-118", "Cobranza", "Documentación pendiente", "Luis M.", "20 Jun"],
@@ -38,7 +41,8 @@ function StatusBadge({ status }: { status: string }) {
 export function LegalDashboardMockup() {
   return (
     <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_90px_-62px_var(--primary)]">
-      <div className="border-b border-border bg-secondary/45 px-4 py-4 sm:px-5">
+      <GralithHexagonBackground variant="surface" />
+      <div className="relative z-10 border-b border-border bg-secondary/60 px-4 py-4 sm:px-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -55,13 +59,17 @@ export function LegalDashboardMockup() {
         </div>
       </div>
 
-      <div className="grid gap-4 p-4 sm:p-5">
+      <div className="relative z-10 grid gap-4 p-4 sm:p-5">
         <div className="grid gap-3 sm:grid-cols-3">
-          {metrics.map(([value, label]) => (
-            <div key={label} className="rounded-lg border border-border bg-background/60 p-4">
+          {metrics.map(([value, label], index) => (
+            <SectionReveal
+              key={label}
+              delay={index * 80}
+              className="rounded-lg border border-border bg-background/60 p-4"
+            >
               <p className="text-3xl font-semibold tracking-normal">{value}</p>
               <p className="mt-1 text-sm text-muted-foreground">{label}</p>
-            </div>
+            </SectionReveal>
           ))}
         </div>
 
@@ -76,9 +84,10 @@ export function LegalDashboardMockup() {
                   <span>Responsable</span>
                   <span>Próxima fecha</span>
                 </div>
-                {cases.map(([id, matter, status, owner, nextDate]) => (
-                  <div
+                {cases.map(([id, matter, status, owner, nextDate], index) => (
+                  <SectionReveal
                     key={id}
+                    delay={160 + index * 70}
                     className="grid grid-cols-[0.7fr_1fr_1.2fr_0.75fr_0.75fr] items-center gap-3 border-b border-border px-4 py-4 text-sm last:border-b-0"
                   >
                     <span className="font-medium text-primary">{id}</span>
@@ -86,7 +95,7 @@ export function LegalDashboardMockup() {
                     <StatusBadge status={status} />
                     <span className="text-muted-foreground">{owner}</span>
                     <span className="text-muted-foreground">{nextDate}</span>
-                  </div>
+                  </SectionReveal>
                 ))}
               </div>
             </div>
@@ -99,7 +108,11 @@ export function LegalDashboardMockup() {
             </div>
             <div className="mt-5 grid gap-4">
               {activity.map((item, index) => (
-                <div key={item} className="grid grid-cols-[auto_1fr] gap-3">
+                <SectionReveal
+                  key={item}
+                  delay={240 + index * 80}
+                  className="grid grid-cols-[auto_1fr] gap-3"
+                >
                   <div className="mt-1 flex size-6 items-center justify-center rounded-full border border-primary/25 bg-accent text-primary">
                     {index === 1 ? (
                       <CalendarDays className="size-3" aria-hidden="true" />
@@ -115,7 +128,7 @@ export function LegalDashboardMockup() {
                       hace {index + 1} h
                     </p>
                   </div>
-                </div>
+                </SectionReveal>
               ))}
             </div>
           </div>

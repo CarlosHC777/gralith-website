@@ -4,6 +4,7 @@ import { CTASection } from "@/components/marketing/cta-section";
 import { FeatureCard } from "@/components/marketing/feature-card";
 import { Hero } from "@/components/marketing/hero";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { SectionReveal } from "@/components/marketing/section-reveal";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -25,32 +26,44 @@ export default function AutomationPage() {
 
       <section className="px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            eyebrow="Enfoque"
-            title="Automatización con criterio operativo, no solo herramientas."
-            description="Partimos del proceso real: qué información entra, quién decide, qué debe ocurrir después y cómo se mide si la operación está bajo control."
-          />
+          <SectionReveal>
+            <SectionHeading
+              eyebrow="Enfoque"
+              title="Automatización con criterio operativo, no solo herramientas."
+              description="Partimos del proceso real: qué información entra, quién decide, qué debe ocurrir después y cómo se mide si la operación está bajo control."
+            />
+          </SectionReveal>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <FeatureCard
-              icon={ListChecks}
-              title="Procesos claros"
-              description="Mapeo de etapas, responsables, reglas y puntos de control para reducir ambigüedad."
-            />
-            <FeatureCard
-              icon={DatabaseZap}
-              title="Datos conectados"
-              description="Modelos de información que reemplazan duplicidad, archivos sueltos y capturas repetidas."
-            />
-            <FeatureCard
-              icon={GitBranch}
-              title="Flujos automatizados"
-              description="Acciones, alertas e integraciones que ejecutan tareas repetitivas en segundo plano."
-            />
-            <FeatureCard
-              icon={MonitorCheck}
-              title="Seguimiento visible"
-              description="Vistas e indicadores para saber qué está detenido, vencido o listo para avanzar."
-            />
+            {[
+              {
+                icon: ListChecks,
+                title: "Procesos claros",
+                description:
+                  "Mapeo de etapas, responsables, reglas y puntos de control para reducir ambigüedad.",
+              },
+              {
+                icon: DatabaseZap,
+                title: "Datos conectados",
+                description:
+                  "Modelos de información que reemplazan duplicidad, archivos sueltos y capturas repetidas.",
+              },
+              {
+                icon: GitBranch,
+                title: "Flujos automatizados",
+                description:
+                  "Acciones, alertas e integraciones que ejecutan tareas repetitivas en segundo plano.",
+              },
+              {
+                icon: MonitorCheck,
+                title: "Seguimiento visible",
+                description:
+                  "Vistas e indicadores para saber qué está detenido, vencido o listo para avanzar.",
+              },
+            ].map((feature, index) => (
+              <SectionReveal key={feature.title} delay={index * 80}>
+                <FeatureCard {...feature} />
+              </SectionReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -73,8 +86,12 @@ export default function AutomationPage() {
               "Implementar",
               "Construimos, probamos y ajustamos con usuarios reales y métricas concretas.",
             ],
-          ].map(([number, title, copy]) => (
-            <div key={number} className="border-l border-primary/35 pl-5">
+          ].map(([number, title, copy], index) => (
+            <SectionReveal
+              key={number}
+              delay={index * 90}
+              className="border-l border-primary/35 pl-5"
+            >
               <p className="text-sm font-semibold text-primary">{number}</p>
               <h2 className="mt-4 text-2xl font-semibold tracking-normal">
                 {title}
@@ -82,7 +99,7 @@ export default function AutomationPage() {
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
                 {copy}
               </p>
-            </div>
+            </SectionReveal>
           ))}
         </div>
       </section>

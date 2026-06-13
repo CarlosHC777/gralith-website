@@ -1,5 +1,8 @@
 import { Activity, CalendarDays, Search, ShieldCheck } from "lucide-react";
 
+import { GralithHexagonBackground } from "@/components/marketing/backgrounds/gralith-hexagon-background";
+import { SectionReveal } from "@/components/marketing/section-reveal";
+
 const cases = [
   ["EXP-1042", "Gómez / Cobranza", "En revisión", "Hoy"],
   ["EXP-1038", "Mercantil Orión", "Pendiente", "Mañana"],
@@ -40,8 +43,8 @@ function StatusBadge({ status }: { status: string }) {
 export function DashboardMockup() {
   return (
     <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-      <div className="absolute inset-x-8 top-16 h-32 rounded-full bg-primary/8 blur-3xl" />
-      <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_90px_-60px_var(--primary)]">
+      <GralithHexagonBackground variant="surface" className="-inset-x-8 -inset-y-10" />
+      <div className="relative z-10 overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_90px_-60px_var(--primary)]">
         <div className="grid min-h-[420px] md:grid-cols-[13rem_1fr]">
           <aside className="hidden border-r border-border bg-secondary/45 p-4 md:block">
             <div className="flex items-center gap-2">
@@ -88,11 +91,15 @@ export function DashboardMockup() {
             </div>
 
             <div className="grid gap-4 py-5 md:grid-cols-3">
-              {metrics.map(([value, label]) => (
-                <div key={label} className="rounded-lg border border-border p-4">
+              {metrics.map(([value, label], index) => (
+                <SectionReveal
+                  key={label}
+                  delay={index * 80}
+                  className="rounded-lg border border-border p-4"
+                >
                   <p className="text-3xl font-semibold tracking-normal">{value}</p>
                   <p className="mt-1 text-sm text-muted-foreground">{label}</p>
-                </div>
+                </SectionReveal>
               ))}
             </div>
 
@@ -106,16 +113,17 @@ export function DashboardMockup() {
                       <span>Estado</span>
                       <span>Fecha</span>
                     </div>
-                    {cases.map(([id, name, status, date]) => (
-                      <div
+                    {cases.map(([id, name, status, date], index) => (
+                      <SectionReveal
                         key={id}
+                        delay={180 + index * 70}
                         className="grid grid-cols-[0.75fr_1.25fr_1fr_0.6fr] items-center gap-3 border-b border-border px-4 py-4 text-sm last:border-b-0"
                       >
                         <span className="font-medium text-primary">{id}</span>
                         <span>{name}</span>
                         <StatusBadge status={status} />
                         <span className="text-muted-foreground">{date}</span>
-                      </div>
+                      </SectionReveal>
                     ))}
                   </div>
                 </div>
@@ -128,7 +136,11 @@ export function DashboardMockup() {
                 </div>
                 <div className="mt-5 grid gap-4">
                   {activity.map((item, index) => (
-                    <div key={item} className="grid grid-cols-[auto_1fr] gap-3">
+                    <SectionReveal
+                      key={item}
+                      delay={260 + index * 80}
+                      className="grid grid-cols-[auto_1fr] gap-3"
+                    >
                       <div className="mt-1 flex size-6 items-center justify-center rounded-full border border-primary/25 bg-accent text-primary">
                         {index === 1 ? (
                           <CalendarDays className="size-3" aria-hidden="true" />
@@ -144,7 +156,7 @@ export function DashboardMockup() {
                           hace {index + 2} min
                         </p>
                       </div>
-                    </div>
+                    </SectionReveal>
                   ))}
                 </div>
               </div>

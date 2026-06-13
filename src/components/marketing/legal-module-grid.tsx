@@ -10,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 
+import { SectionReveal } from "@/components/marketing/section-reveal";
 import { cn } from "@/lib/utils";
 
 const modules: Array<{
@@ -71,9 +72,10 @@ const modules: Array<{
 export function LegalModuleGrid() {
   return (
     <div className="grid gap-4 md:grid-cols-4">
-      {modules.map(({ title, description, icon: Icon, className }) => (
-        <div
+      {modules.map(({ title, description, icon: Icon, className }, index) => (
+        <SectionReveal
           key={title}
+          delay={index * 65}
           className={cn(
             "rounded-lg border border-border bg-card p-5 shadow-sm md:min-h-52",
             className
@@ -86,7 +88,7 @@ export function LegalModuleGrid() {
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
             {description}
           </p>
-        </div>
+        </SectionReveal>
       ))}
     </div>
   );

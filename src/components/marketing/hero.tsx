@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
+import { GralithHexagonBackground } from "@/components/marketing/backgrounds/gralith-hexagon-background";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +17,7 @@ type HeroProps = {
   secondaryHref?: string;
   visual?: ReactNode;
   showBrandLogo?: boolean;
+  showHexBackground?: boolean;
 };
 
 export function Hero({
@@ -28,16 +30,18 @@ export function Hero({
   secondaryHref,
   visual,
   showBrandLogo = false,
+  showHexBackground = false,
 }: HeroProps) {
   return (
     <section
       className={cn(
-        "px-4 pb-16 sm:px-6 md:pb-28",
+        "relative overflow-hidden px-4 pb-16 sm:px-6 md:pb-28",
         showBrandLogo ? "pt-10 md:pt-20" : "pt-14 md:pt-28",
       )}
     >
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <div>
+      {showHexBackground ? <GralithHexagonBackground variant="heroWide" /> : null}
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="relative z-10">
           {showBrandLogo ? (
             <div className="mb-4 flex justify-start md:mb-5">
               <Image
@@ -81,7 +85,7 @@ export function Hero({
           </div>
         </div>
         {visual ?? (
-          <div className="border-y border-border py-6">
+          <div className="relative z-10 border-y border-border py-6">
             <div className="grid gap-3 text-sm">
               {[
                 ["Entrada", "WhatsApp, correo, archivos, agenda"],
