@@ -2,6 +2,7 @@ import { Mail, MessageSquareText } from "lucide-react";
 
 import { ContactForm } from "@/components/marketing/contact/contact-form";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { SectionReveal } from "@/components/marketing/section-reveal";
 import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
@@ -16,7 +17,7 @@ export default function ContactPage() {
   return (
     <section className="px-4 py-16 sm:px-6 md:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
+        <SectionReveal>
           <SectionHeading
             eyebrow="Contacto"
             title="Solicita un diagnóstico operativo"
@@ -37,9 +38,11 @@ export default function ContactPage() {
               Respuesta inicial en 1 a 2 días hábiles.
             </div>
           </div>
-        </div>
+        </SectionReveal>
 
-        <ContactForm />
+        <SectionReveal delay={120}>
+          <ContactForm />
+        </SectionReveal>
       </div>
     </section>
   );

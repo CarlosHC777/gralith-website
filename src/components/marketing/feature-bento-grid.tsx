@@ -11,6 +11,7 @@ import {
   Users,
 } from "lucide-react";
 
+import { SectionReveal } from "@/components/marketing/section-reveal";
 import { cn } from "@/lib/utils";
 
 const features: Array<{
@@ -75,9 +76,10 @@ const features: Array<{
 export function FeatureBentoGrid() {
   return (
     <div className="grid gap-4 md:grid-cols-4">
-      {features.map(({ title, description, icon: Icon, className }) => (
-        <div
+      {features.map(({ title, description, icon: Icon, className }, index) => (
+        <SectionReveal
           key={title}
+          delay={index * 65}
           className={cn(
             "group rounded-lg border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/35 md:min-h-52",
             className
@@ -90,7 +92,7 @@ export function FeatureBentoGrid() {
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
             {description}
           </p>
-        </div>
+        </SectionReveal>
       ))}
     </div>
   );

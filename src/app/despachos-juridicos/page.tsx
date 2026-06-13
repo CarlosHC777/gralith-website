@@ -17,6 +17,7 @@ import { LegalModuleGrid } from "@/components/marketing/legal-module-grid";
 import { LegalSystemMap } from "@/components/marketing/legal-system-map";
 import { Hero } from "@/components/marketing/hero";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { SectionReveal } from "@/components/marketing/section-reveal";
 import { Button } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
@@ -129,26 +130,31 @@ export default function LegalPage() {
 
       <section className="px-4 pb-16 sm:px-6 md:pb-20">
         <div className="mx-auto max-w-6xl">
-          <LegalDashboardMockup />
+          <SectionReveal>
+            <LegalDashboardMockup />
+          </SectionReveal>
         </div>
       </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-          <SectionHeading
-            eyebrow="Problema operativo"
-            title="Cuando la operación depende de mensajes, carpetas y memoria, el despacho pierde visibilidad."
-            description="El trabajo jurídico cotidiano suele avanzar entre herramientas que no fueron diseñadas para explicar qué está pasando en cada expediente."
-          />
+          <SectionReveal>
+            <SectionHeading
+              eyebrow="Problema operativo"
+              title="Cuando la operación depende de mensajes, carpetas y memoria, el despacho pierde visibilidad."
+              description="El trabajo jurídico cotidiano suele avanzar entre herramientas que no fueron diseñadas para explicar qué está pasando en cada expediente."
+            />
+          </SectionReveal>
           <div className="grid gap-3">
-            {painPoints.map((point) => (
-              <div
+            {painPoints.map((point, index) => (
+              <SectionReveal
                 key={point}
+                delay={index * 70}
                 className="flex gap-3 rounded-lg border border-border bg-card p-4 text-sm leading-6 text-muted-foreground"
               >
                 <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
                 <span>{point}</span>
-              </div>
+              </SectionReveal>
             ))}
           </div>
         </div>
@@ -156,11 +162,13 @@ export default function LegalPage() {
 
       <section className="bg-secondary/55 px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            eyebrow="Antes y después"
-            title="De herramientas dispersas a una operación trazable."
-            description="Gralith Legal no reemplaza el criterio del equipo: ordena la información para que el seguimiento sea más claro."
-          />
+          <SectionReveal>
+            <SectionHeading
+              eyebrow="Antes y después"
+              title="De herramientas dispersas a una operación trazable."
+              description="Gralith Legal no reemplaza el criterio del equipo: ordena la información para que el seguimiento sea más claro."
+            />
+          </SectionReveal>
           <div className="mt-10">
             <LegalBeforeAfter />
           </div>
@@ -169,11 +177,13 @@ export default function LegalPage() {
 
       <section id="modulos" className="scroll-mt-24 px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            eyebrow="Módulos"
-            title="Una base operativa para centralizar el trabajo del despacho."
-            description="Cada módulo responde a una parte concreta de la operación: clientes, expedientes, documentos, agenda, actividad, búsqueda y control."
-          />
+          <SectionReveal>
+            <SectionHeading
+              eyebrow="Módulos"
+              title="Una base operativa para centralizar el trabajo del despacho."
+              description="Cada módulo responde a una parte concreta de la operación: clientes, expedientes, documentos, agenda, actividad, búsqueda y control."
+            />
+          </SectionReveal>
           <div className="mt-10">
             <LegalModuleGrid />
           </div>
@@ -182,14 +192,20 @@ export default function LegalPage() {
 
       <section className="bg-secondary/55 px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            eyebrow="Casos de uso"
-            title="Casos de uso iniciales."
-            description="Puntos prácticos donde un sistema operativo legal puede empezar a generar orden sin prometer atajos irreales."
-          />
+          <SectionReveal>
+            <SectionHeading
+              eyebrow="Casos de uso"
+              title="Casos de uso iniciales."
+              description="Puntos prácticos donde un sistema operativo legal puede empezar a generar orden sin prometer atajos irreales."
+            />
+          </SectionReveal>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {useCases.map(({ title, description, icon: Icon }) => (
-              <div key={title} className="rounded-lg border border-border bg-card p-5">
+            {useCases.map(({ title, description, icon: Icon }, index) => (
+              <SectionReveal
+                key={title}
+                delay={index * 70}
+                className="rounded-lg border border-border bg-card p-5"
+              >
                 <div className="flex size-10 items-center justify-center rounded-md bg-accent text-primary">
                   <Icon className="size-5" aria-hidden="true" />
                 </div>
@@ -197,7 +213,7 @@ export default function LegalPage() {
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">
                   {description}
                 </p>
-              </div>
+              </SectionReveal>
             ))}
           </div>
         </div>
@@ -205,20 +221,26 @@ export default function LegalPage() {
 
       <section className="px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading
-            eyebrow="Implementación"
-            title="Un proceso gradual para ordenar primero y automatizar después."
-            description="La implementación se enfoca en una primera versión útil, adoptable y conectada al flujo real del despacho."
-          />
+          <SectionReveal>
+            <SectionHeading
+              eyebrow="Implementación"
+              title="Un proceso gradual para ordenar primero y automatizar después."
+              description="La implementación se enfoca en una primera versión útil, adoptable y conectada al flujo real del despacho."
+            />
+          </SectionReveal>
           <div className="mt-10 grid gap-4 md:grid-cols-4">
-            {process.map(([step, title, description]) => (
-              <div key={step} className="rounded-lg border border-border bg-card p-5 md:min-h-64">
+            {process.map(([step, title, description], index) => (
+              <SectionReveal
+                key={step}
+                delay={index * 90}
+                className="rounded-lg border border-border bg-card p-5 md:min-h-64"
+              >
                 <p className="text-sm font-semibold text-primary">{step}</p>
                 <h3 className="mt-6 text-xl font-semibold tracking-normal">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">
                   {description}
                 </p>
-              </div>
+              </SectionReveal>
             ))}
           </div>
         </div>
@@ -226,7 +248,7 @@ export default function LegalPage() {
 
       <section className="bg-secondary/55 px-4 py-16 sm:px-6 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2">
-          <div>
+          <SectionReveal>
             <SectionHeading
               eyebrow="Para quién"
               title="Pensado para despachos que quieren operar con más claridad."
@@ -240,8 +262,8 @@ export default function LegalPage() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="rounded-lg border border-border bg-card p-6">
+          </SectionReveal>
+          <SectionReveal delay={120} className="rounded-lg border border-border bg-card p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
               Principios de trabajo
             </p>
@@ -255,12 +277,12 @@ export default function LegalPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </SectionReveal>
         </div>
       </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-8 border-y border-border py-12 md:grid-cols-[1fr_auto] md:items-center">
+        <SectionReveal className="mx-auto grid max-w-6xl gap-8 border-y border-border py-12 md:grid-cols-[1fr_auto] md:items-center">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
               Siguiente paso
@@ -290,7 +312,7 @@ export default function LegalPage() {
               <a href={`mailto:${siteConfig.email}`}>Escribir por correo</a>
             </Button>
           </div>
-        </div>
+        </SectionReveal>
       </section>
     </>
   );
