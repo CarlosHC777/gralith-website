@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gralith Website
 
-## Getting Started
+Marketing site for Gralith, a B2B process automation company for professional teams. The first commercial vertical is Gralith Legal, focused on operational automation for legal offices.
 
-First, run the development server:
+Production domain: https://gralith.com.mx
+
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Vercel Analytics
+- Resend for contact form email delivery
+- Vercel for deployment
+
+## Requirements
+
+- Node.js compatible with the version used by Next.js 16
+- npm
+- A local `.env.local` file for secrets
+
+## Local Setup
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000.
+
+## Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Required locally and in Vercel:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```txt
+RESEND_API_KEY=
+```
 
-## Learn More
+Never commit `.env.local`, API keys, DNS settings, deployment secrets, or email provider secrets.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact Form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The contact form posts to `src/app/api/contact/route.ts` and sends email through Resend.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Current delivery contract:
 
-## Deploy on Vercel
+- sender: `Gralith <leads@gralith.com.mx>`
+- recipient: `carloshc@gralith.com.mx`
+- secret: `RESEND_API_KEY`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Do not modify contact delivery logic unless the task is explicitly about the contact form.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Architecture Conventions
+
+- `src/app` contains route composition and metadata.
+- `src/components/site` contains global shell components such as navbar and footer.
+- `src/components/marketing/sections` contains route-level marketing sections.
+- `src/components/marketing/mockups` contains dashboard/process/system visuals.
+- `src/components/marketing/backgrounds` contains reusable background primitives and ornaments.
+- `src/components/marketing/shared` contains reusable marketing UI.
+- `src/components/motion` contains motion primitives such as `SectionReveal`.
+- `src/content` contains static marketing/navigation data when extraction improves readability.
+
+Pages should read as section assemblies. Avoid putting large content arrays, SVG details, motion logic, or background implementation directly inside route files.
+
+## Motion And Background Rules
+
+- Keep motion subtle and purposeful.
+- Respect `prefers-reduced-motion`.
+- Keep client components isolated to motion/background primitives when possible.
+- Background layers must be `pointer-events-none` and behind content.
+- Use `overflow-hidden` on sections that include large ornaments.
+- Avoid heavy animation libraries, particles, 3D libraries, and flashy gradients.
+
+## Branch And PR Flow
+
+Use small, reviewable branches:
+
+```bash
+git checkout -b descriptive-branch-name
+npm run lint
+npm run build
+```
+
+Open a pull request into `main`. The CI workflow runs lint and production build on PRs.
+
+## Deploy
+
+Deployment is handled by Vercel. Do not change DNS, analytics, email, or deployment configuration from code unless a task explicitly requires it.

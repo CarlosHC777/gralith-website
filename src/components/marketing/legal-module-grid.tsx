@@ -10,7 +10,7 @@ import {
   Users,
 } from "lucide-react";
 
-import { SectionReveal } from "@/components/marketing/section-reveal";
+import { SectionReveal } from "@/components/motion/section-reveal";
 import { cn } from "@/lib/utils";
 
 const modules: Array<{

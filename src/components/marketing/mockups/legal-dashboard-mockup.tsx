@@ -1,7 +1,7 @@
 import { Activity, CalendarDays, Search, ShieldCheck } from "lucide-react";
 
 import { GralithHexagonBackground } from "@/components/marketing/backgrounds/gralith-hexagon-background";
-import { SectionReveal } from "@/components/marketing/section-reveal";
+import { SectionReveal } from "@/components/motion/section-reveal";
 
 const cases = [
   ["CIV-204", "Arrendamiento", "En seguimiento", "Ana R.", "18 Jun"],

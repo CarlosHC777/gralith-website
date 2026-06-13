@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { footerLinks } from "@/content/navigation";
+
 export function Footer() {
   return (
     <footer className="border-t border-border px-4 py-10 sm:px-6">
@@ -16,15 +18,11 @@ export function Footer() {
           <p className="mt-1">Automatización de procesos para equipos profesionales.</p>
         </div>
         <div className="flex flex-wrap gap-5">
-          <Link href="/despachos-juridicos" className="hover:text-foreground">
-            Gralith Legal
-          </Link>
-          <Link href="/automatizacion-de-procesos" className="hover:text-foreground">
-            Automatización
-          </Link>
-          <Link href="/contacto" className="hover:text-foreground">
-            Contacto
-          </Link>
+          {footerLinks.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:text-foreground">
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>

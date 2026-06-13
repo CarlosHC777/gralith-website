@@ -1,7 +1,8 @@
 import { Activity, CalendarDays, Search, ShieldCheck } from "lucide-react";
 
+import { GarnetOrnaments } from "@/components/marketing/backgrounds/garnet-ornaments";
 import { GralithHexagonBackground } from "@/components/marketing/backgrounds/gralith-hexagon-background";
-import { SectionReveal } from "@/components/marketing/section-reveal";
+import { SectionReveal } from "@/components/motion/section-reveal";
 
 const cases = [
   ["EXP-1042", "Gómez / Cobranza", "En revisión", "Hoy"],
@@ -43,6 +44,7 @@ function StatusBadge({ status }: { status: string }) {
 export function DashboardMockup() {
   return (
     <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <GarnetOrnaments className="-inset-x-4 -inset-y-16" />
       <GralithHexagonBackground variant="surface" className="-inset-x-8 -inset-y-10" />
       <div className="relative z-10 overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_90px_-60px_var(--primary)]">
         <div className="grid min-h-[420px] md:grid-cols-[13rem_1fr]">
