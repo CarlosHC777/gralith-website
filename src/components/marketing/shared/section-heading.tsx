@@ -6,6 +6,7 @@ type SectionHeadingProps = {
   description?: string;
   align?: "left" | "center";
   className?: string;
+  variant?: "light" | "dark";
 };
 
 export function SectionHeading({
@@ -14,7 +15,10 @@ export function SectionHeading({
   description,
   align = "left",
   className,
+  variant = "light",
 }: SectionHeadingProps) {
+  const isDark = variant === "dark";
+
   return (
     <div
       className={cn(
@@ -24,15 +28,32 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        <p
+          className={cn(
+            "mb-3 text-xs font-semibold uppercase tracking-[0.18em]",
+            isDark ? "text-[var(--gralith-garnet-muted)]" : "text-primary",
+          )}
+        >
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="font-heading text-3xl font-semibold tracking-normal text-foreground md:text-4xl">
+      <h2
+        className={cn(
+          "max-w-full break-words font-heading text-3xl font-semibold tracking-normal md:text-4xl",
+          isDark ? "text-[var(--gralith-dark-text)]" : "text-foreground",
+        )}
+      >
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-base leading-7 text-muted-foreground md:text-lg">
+        <p
+          className={cn(
+            "mt-4 text-base leading-7 md:text-lg",
+            isDark
+              ? "text-[var(--gralith-dark-text-secondary)]"
+              : "text-muted-foreground",
+          )}
+        >
           {description}
         </p>
       ) : null}

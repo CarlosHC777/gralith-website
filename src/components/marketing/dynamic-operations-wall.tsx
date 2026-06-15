@@ -29,7 +29,8 @@ const traceableOutputs = [
 
 export function DynamicOperationsWall() {
   return (
-    <section className="relative overflow-hidden bg-primary px-4 py-16 text-primary-foreground sm:px-6 md:py-24">
+    <section className="relative overflow-hidden border-y border-[var(--gralith-dark-border-garnet)] bg-[var(--gralith-garnet-deep)] px-4 py-16 text-primary-foreground sm:px-6 md:py-24">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,var(--gralith-garnet-glow-soft),transparent_36%)]" />
       <div className="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.76fr_1.24fr] lg:items-center">
         <SectionReveal>
           <SectionHeading
@@ -40,7 +41,7 @@ export function DynamicOperationsWall() {
           />
         </SectionReveal>
 
-        <div className="relative overflow-hidden rounded-lg border border-primary-foreground/16 bg-primary-foreground/[0.055] p-4 shadow-[0_28px_100px_-70px_#000] sm:p-6">
+        <div className="relative overflow-hidden rounded-lg border border-primary-foreground/16 bg-[rgba(7,7,8,0.28)] p-4 shadow-[0_28px_100px_-70px_#000] sm:p-6">
           <div className="pointer-events-none absolute left-[24%] right-[24%] top-1/2 z-0 hidden h-px bg-primary-foreground/18 lg:block" />
           <div className="pointer-events-none absolute bottom-[calc(50%-4rem)] left-[calc(50%-1px)] top-[calc(50%-4rem)] z-0 hidden w-px bg-primary-foreground/12 lg:block" />
 
@@ -72,15 +73,15 @@ export function DynamicOperationsWall() {
             </div>
 
             <SectionReveal variant="scale" delay={160} className="relative z-20">
-              <div className="rounded-lg border border-primary-foreground/20 bg-[#fffcf6] p-4 text-foreground shadow-[0_24px_80px_-54px_#000] sm:p-5">
-                <div className="border-b border-border pb-4 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              <div className="rounded-lg border border-primary-foreground/18 bg-[var(--gralith-dark-elevated)] p-4 text-[var(--gralith-dark-text)] shadow-[0_24px_80px_-54px_#000] sm:p-5">
+                <div className="border-b border-[var(--gralith-dark-border)] pb-4 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--gralith-garnet-muted)]">
                     Sistema central
                   </p>
                   <h3 className="mt-2 text-xl font-semibold tracking-normal">
                     Gralith
                   </h3>
-                  <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-muted-foreground">
+                  <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-[var(--gralith-dark-text-secondary)]">
                     Reglas, roles y actividad conectadas en una vista común.
                   </p>
                 </div>
@@ -93,14 +94,14 @@ export function DynamicOperationsWall() {
                   ].map(([label, detail], index) => (
                     <div
                       key={label}
-                      className="grid grid-cols-[auto_1fr] gap-3 rounded-md border border-border bg-background/70 p-3"
+                      className="grid grid-cols-[auto_1fr] gap-3 rounded-md border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-panel)] p-3"
                     >
-                      <span className="mt-0.5 flex size-6 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                      <span className="mt-0.5 flex size-6 items-center justify-center rounded-full bg-[var(--gralith-garnet)] text-xs font-semibold text-[var(--gralith-dark-text)]">
                         {index + 1}
                       </span>
                       <div>
                         <p className="text-sm font-medium">{label}</p>
-                        <p className="text-xs leading-5 text-muted-foreground">{detail}</p>
+                        <p className="text-xs leading-5 text-[var(--gralith-dark-text-secondary)]">{detail}</p>
                       </div>
                     </div>
                   ))}
