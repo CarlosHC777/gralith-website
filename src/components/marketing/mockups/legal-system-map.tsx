@@ -1,5 +1,8 @@
 import { Activity, CalendarDays, FileText, FolderKanban, Search, Users } from "lucide-react";
 
+import { SectionReveal } from "@/components/motion/section-reveal";
+import { StaggerContainer } from "@/components/motion/stagger-container";
+
 const nodes = [
   { label: "Clientes", icon: Users },
   { label: "Expedientes", icon: FolderKanban },
@@ -11,8 +14,20 @@ const nodes = [
 
 export function LegalSystemMap() {
   return (
-    <div className="rounded-lg border border-border bg-card p-4 shadow-[0_24px_80px_-58px_var(--primary)] sm:p-5">
-      <div className="grid gap-3 sm:grid-cols-2">
+    <div className="overflow-hidden rounded-lg border border-border bg-card p-4 shadow-[0_24px_80px_-58px_var(--primary)] sm:p-5">
+      <SectionReveal variant="scale">
+        <div className="rounded-md bg-primary px-4 py-5 text-primary-foreground">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-75">
+            Sistema central
+          </p>
+          <p className="mt-2 text-2xl font-semibold">Gralith Legal</p>
+          <p className="mt-2 text-sm leading-6 opacity-85">
+            Un lugar para consultar, dar seguimiento y auditar la operación diaria del despacho.
+          </p>
+        </div>
+      </SectionReveal>
+
+      <StaggerContainer className="mt-4 grid gap-3 sm:grid-cols-2" delay={120} step={55}>
         {nodes.map(({ label, icon: Icon }) => (
           <div
             key={label}
@@ -22,16 +37,7 @@ export function LegalSystemMap() {
             <span>{label}</span>
           </div>
         ))}
-      </div>
-      <div className="mt-4 rounded-md bg-primary px-4 py-4 text-primary-foreground">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-75">
-          Sistema central
-        </p>
-        <p className="mt-2 text-2xl font-semibold">Gralith Legal</p>
-        <p className="mt-2 text-sm leading-6 opacity-85">
-          Un lugar para consultar, dar seguimiento y auditar la operación diaria del despacho.
-        </p>
-      </div>
+      </StaggerContainer>
     </div>
   );
 }

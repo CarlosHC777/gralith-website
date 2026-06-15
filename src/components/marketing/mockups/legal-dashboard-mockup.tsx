@@ -1,7 +1,7 @@
 import { Activity, CalendarDays, Search, ShieldCheck } from "lucide-react";
 
-import { GralithHexagonBackground } from "@/components/marketing/backgrounds/gralith-hexagon-background";
 import { SectionReveal } from "@/components/motion/section-reveal";
+import { StaggerContainer } from "@/components/motion/stagger-container";
 
 const cases = [
   ["CIV-204", "Arrendamiento", "En seguimiento", "Ana R.", "18 Jun"],
@@ -41,7 +41,6 @@ function StatusBadge({ status }: { status: string }) {
 export function LegalDashboardMockup() {
   return (
     <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_90px_-62px_var(--primary)]">
-      <GralithHexagonBackground variant="surface" />
       <div className="relative z-10 border-b border-border bg-secondary/60 px-4 py-4 sm:px-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
@@ -60,18 +59,17 @@ export function LegalDashboardMockup() {
       </div>
 
       <div className="relative z-10 grid gap-4 p-4 sm:p-5">
-        <div className="grid gap-3 sm:grid-cols-3">
-          {metrics.map(([value, label], index) => (
-            <SectionReveal
+        <StaggerContainer className="grid gap-3 sm:grid-cols-3" delay={80} step={70}>
+          {metrics.map(([value, label]) => (
+            <div
               key={label}
-              delay={index * 80}
               className="rounded-lg border border-border bg-background/60 p-4"
             >
               <p className="text-3xl font-semibold tracking-normal">{value}</p>
               <p className="mt-1 text-sm text-muted-foreground">{label}</p>
-            </SectionReveal>
+            </div>
           ))}
-        </div>
+        </StaggerContainer>
 
         <div className="grid gap-4 xl:grid-cols-[1.45fr_0.55fr]">
           <div className="overflow-hidden rounded-lg border border-border">
