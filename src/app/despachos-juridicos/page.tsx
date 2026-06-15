@@ -9,6 +9,7 @@ import {
   LegalProcessSection,
   LegalUseCasesSection,
 } from "@/components/marketing/sections/legal-sections";
+import { LegalDiagnosticRadarSection } from "@/components/marketing/sections/legal-diagnostic-radar-section";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -29,6 +30,7 @@ export default function LegalPage() {
       <LegalModulesSection />
       <LegalUseCasesSection />
       <LegalProcessSection />
+      <LegalDiagnosticRadarSection />
       <LegalAudienceSection />
       <LegalCTASection />
     </>
