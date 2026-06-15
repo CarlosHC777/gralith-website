@@ -11,6 +11,7 @@ import {
   Users,
 } from "lucide-react";
 
+import { DarkCard } from "@/components/marketing/shared/dark-card";
 import { SectionReveal } from "@/components/motion/section-reveal";
 import { cn } from "@/lib/utils";
 
@@ -80,18 +81,19 @@ export function FeatureBentoGrid() {
         <SectionReveal
           key={title}
           delay={index * 65}
-          className={cn(
-            "group rounded-lg border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/35 md:min-h-52",
-            className
-          )}
+          className={cn(className)}
         >
-          <div className="flex size-10 items-center justify-center rounded-md bg-accent text-primary transition-transform group-hover:-translate-y-0.5">
-            <Icon className="size-5" aria-hidden="true" />
-          </div>
-          <h3 className="mt-7 text-lg font-semibold tracking-normal">{title}</h3>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            {description}
-          </p>
+          <DarkCard interactive className="group h-full p-5 md:min-h-52">
+            <div className="flex size-10 items-center justify-center rounded-md bg-[var(--gralith-garnet-soft-fill)] text-[var(--gralith-garnet-muted)] transition-transform group-hover:-translate-y-0.5">
+              <Icon className="size-5" aria-hidden="true" />
+            </div>
+            <h3 className="mt-7 text-lg font-semibold tracking-normal text-[var(--gralith-dark-text)]">
+              {title}
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-[var(--gralith-dark-text-secondary)]">
+              {description}
+            </p>
+          </DarkCard>
         </SectionReveal>
       ))}
     </div>

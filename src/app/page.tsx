@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden bg-[var(--gralith-dark-base)]">
       <HomeHeroSection />
       <HomeDashboardSection />
       <HomeValueSection />

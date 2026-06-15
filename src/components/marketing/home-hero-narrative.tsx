@@ -1,53 +1,52 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { DarkSectionBackdrop } from "@/components/marketing/backgrounds/dark-section-backdrop";
 import { HeroProcessFlow } from "@/components/marketing/mockups/hero-process-flow";
-import { SectionReveal } from "@/components/motion/section-reveal";
 import { SplitHeadline } from "@/components/motion/split-headline";
 import { StaggerContainer } from "@/components/motion/stagger-container";
+import { SectionReveal } from "@/components/motion/section-reveal";
 import { Button } from "@/components/ui/button";
 
 export function HomeHeroNarrative() {
   return (
-    <section className="relative overflow-hidden px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-16">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
+    <DarkSectionBackdrop
+      variant="hero"
+      className="px-4 pb-14 pt-16 sm:px-6 md:pb-20 md:pt-20"
+      contentClassName="mx-auto max-w-6xl"
+    >
+      <div className="grid gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
         <div className="relative z-10 min-w-0">
-          <SectionReveal>
-            <div className="mb-5 flex justify-start">
-              <Image
-                src="/brand/gralith-logo-horizontal.png"
-                alt="Gralith"
-                width={666}
-                height={375}
-                sizes="(max-width: 640px) 132px, (max-width: 1024px) 172px, 204px"
-                className="h-auto w-32 max-w-[46vw] object-contain sm:w-36 md:w-44 lg:w-52"
-                priority
-              />
-            </div>
-          </SectionReveal>
-
           <SplitHeadline
             as="h1"
-            lines={["Automatización", "que ordena", "la operación diaria."]}
-            className="max-w-4xl font-heading text-4xl font-semibold leading-[1.06] tracking-normal text-foreground sm:text-5xl md:text-6xl md:leading-[1.02]"
+            lines={[
+              "El sistema operativo",
+              "para ordenar",
+              "la operación diaria",
+              "del despacho.",
+            ]}
+            className="max-w-4xl font-heading text-4xl font-semibold leading-[1.06] tracking-normal text-[var(--gralith-dark-text)] sm:text-5xl md:text-6xl md:leading-[1.02]"
           />
 
           <SectionReveal delay={120}>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
-              Gralith convierte mensajes, archivos, agenda y actividad del equipo en
-              un sistema operativo claro: expedientes visibles, tareas trazables,
-              auditoría y búsqueda en un solo lugar.
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--gralith-dark-text-secondary)] md:text-lg md:leading-8">
+              Centraliza expedientes, documentos, agenda y actividad en una
+              vista clara para que el equipo trabaje con menos fricción y más
+              trazabilidad.
             </p>
           </SectionReveal>
 
           <StaggerContainer
             className="mt-8 flex flex-col gap-3 sm:flex-row"
-            childClassName="sm:w-auto"
+            childClassName="w-full sm:w-auto"
             delay={180}
             step={80}
           >
-            <Button asChild size="lg" className="h-11 w-full rounded-md px-5 sm:w-auto">
+            <Button
+              asChild
+              size="lg"
+              className="h-11 w-full rounded-md bg-[var(--gralith-garnet)] px-5 text-[var(--gralith-dark-text)] shadow-[0_18px_55px_-32px_var(--gralith-garnet)] hover:bg-[var(--gralith-garnet-muted)] sm:w-auto"
+            >
               <Link href="/contacto">
                 Solicitar diagnóstico
                 <ArrowRight data-icon="inline-end" className="size-4" />
@@ -57,17 +56,34 @@ export function HomeHeroNarrative() {
               asChild
               variant="outline"
               size="lg"
-              className="h-11 w-full rounded-md px-5 sm:w-auto"
+              className="h-11 w-full rounded-md border-[var(--gralith-dark-border)] bg-transparent px-5 text-[var(--gralith-dark-text)] hover:bg-[var(--gralith-dark-surface)] hover:text-[var(--gralith-dark-text)] sm:w-auto"
             >
               <Link href="/despachos-juridicos">Ver Gralith Legal</Link>
             </Button>
           </StaggerContainer>
+
+          <StaggerContainer
+            className="mt-8 flex max-w-full flex-wrap gap-2"
+            delay={260}
+            step={60}
+          >
+            {["Expedientes visibles", "Agenda centralizada", "Auditoría trazable"].map(
+              (label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-[var(--gralith-dark-border-soft)] bg-[var(--gralith-dark-surface)] px-3 py-1 text-xs font-medium text-[var(--gralith-dark-text-secondary)]"
+                >
+                  {label}
+                </span>
+              ),
+            )}
+          </StaggerContainer>
         </div>
 
-        <SectionReveal delay={160} className="relative z-10 min-w-0">
+        <SectionReveal delay={160} variant="scale" className="relative z-10 min-w-0">
           <HeroProcessFlow />
         </SectionReveal>
       </div>
-    </section>
+    </DarkSectionBackdrop>
   );
 }
