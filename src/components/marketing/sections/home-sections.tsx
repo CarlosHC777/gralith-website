@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { SectionBackdrop } from "@/components/marketing/backgrounds/section-backdrop";
 import { DynamicOperationsWall } from "@/components/marketing/dynamic-operations-wall";
 import { FeatureBentoGrid } from "@/components/marketing/feature-bento-grid";
-import { Hero } from "@/components/marketing/hero";
-import { DashboardMockup } from "@/components/marketing/mockups/dashboard-mockup";
-import { HeroProcessFlow } from "@/components/marketing/mockups/hero-process-flow";
+import { HomeHeroNarrative } from "@/components/marketing/home-hero-narrative";
+import { LaptopShowcaseSection } from "@/components/marketing/laptop-showcase-section";
 import { CTASection } from "@/components/marketing/shared/cta-section";
 import { SectionHeading } from "@/components/marketing/shared/section-heading";
 import { WorkProcess } from "@/components/marketing/work-process";
@@ -14,29 +12,11 @@ import { SectionReveal } from "@/components/motion/section-reveal";
 import { Button } from "@/components/ui/button";
 
 export function HomeHeroSection() {
-  return (
-    <Hero
-      eyebrow="Gralith"
-      showBrandLogo
-      showHexBackground
-      title="Automatización de procesos para equipos profesionales"
-      description="Diseñamos sistemas operativos internos para centralizar información, reducir tareas manuales y dar visibilidad real a la operación diaria."
-      ctaLabel="Solicitar diagnóstico"
-      secondaryLabel="Ver Gralith Legal"
-      secondaryHref="/despachos-juridicos"
-      visual={<HeroProcessFlow />}
-    />
-  );
+  return <HomeHeroNarrative />;
 }
 
 export function HomeDashboardSection() {
-  return (
-    <SectionBackdrop className="pb-16 md:pb-20" overflow="hidden">
-      <SectionReveal>
-        <DashboardMockup />
-      </SectionReveal>
-    </SectionBackdrop>
-  );
+  return <LaptopShowcaseSection />;
 }
 
 export function HomeValueSection() {

@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <HomeHeroSection />
       <HomeDashboardSection />
       <HomeValueSection />
@@ -26,6 +26,6 @@ export default function Home() {
       <HomeLegalVerticalSection />
       <HomeWorkProcessSection />
       <HomeCTASection />
-    </>
+    </div>
   );
 }
