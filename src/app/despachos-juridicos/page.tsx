@@ -22,7 +22,7 @@ export const metadata = createPageMetadata({
 
 export default function LegalPage() {
   return (
-    <>
+    <div className="overflow-x-hidden bg-[var(--gralith-dark-base)]">
       <LegalHeroSection />
       <LegalDashboardSection />
       <LegalProblemSection />
@@ -33,6 +33,6 @@ export default function LegalPage() {
       <LegalDiagnosticRadarSection />
       <LegalAudienceSection />
       <LegalCTASection />
-    </>
+    </div>
   );
 }

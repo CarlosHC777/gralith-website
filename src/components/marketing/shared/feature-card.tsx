@@ -8,6 +8,7 @@ type FeatureCardProps = {
   title: string;
   description: string;
   className?: string;
+  variant?: "light" | "dark";
 };
 
 export function FeatureCard({
@@ -15,17 +16,42 @@ export function FeatureCard({
   title,
   description,
   className,
+  variant = "light",
 }: FeatureCardProps) {
+  const isDark = variant === "dark";
+
   return (
-    <Card className={cn("rounded-lg border-0 bg-card shadow-none", className)}>
+    <Card
+      className={cn(
+        "rounded-lg border-0 bg-card shadow-none",
+        isDark &&
+          "border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-elevated)] text-[var(--gralith-dark-text)] shadow-[0_18px_60px_-54px_#000]",
+        className,
+      )}
+    >
       <CardHeader className="gap-4">
-        <div className="flex size-10 items-center justify-center rounded-md bg-accent text-primary">
+        <div
+          className={cn(
+            "flex size-10 items-center justify-center rounded-md bg-accent text-primary",
+            isDark &&
+              "bg-[var(--gralith-garnet-soft-fill)] text-[var(--gralith-garnet-muted)]",
+          )}
+        >
           <Icon className="size-5" aria-hidden="true" />
         </div>
         <CardTitle className="text-lg">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm leading-6 text-muted-foreground">{description}</p>
+        <p
+          className={cn(
+            "text-sm leading-6",
+            isDark
+              ? "text-[var(--gralith-dark-text-secondary)]"
+              : "text-muted-foreground",
+          )}
+        >
+          {description}
+        </p>
       </CardContent>
     </Card>
   );

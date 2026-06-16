@@ -11,6 +11,7 @@ type OperationalRadarChartProps = {
   className?: string;
   title?: string;
   description?: string;
+  variant?: "light" | "dark";
 };
 
 const center = 210;
@@ -48,8 +49,10 @@ export function OperationalRadarChart({
   className,
   title = "Radar de diagnóstico operativo",
   description = "Comparación ilustrativa entre estado actual y estado objetivo del despacho en seis áreas operativas.",
+  variant = "light",
 }: OperationalRadarChartProps) {
   const total = axes.length;
+  const isDark = variant === "dark";
   const currentPoints = axes.map((axis, index) =>
     polarPoint(index, total, axis.current),
   );
@@ -79,7 +82,7 @@ export function OperationalRadarChart({
               points={pointsToString(
                 axes.map((_, index) => polarPoint(index, total, level * 100)),
               )}
-              className="stroke-border"
+              className={isDark ? "stroke-primary-foreground/12" : "stroke-border"}
               strokeWidth="1"
             />
           ))}
@@ -94,7 +97,7 @@ export function OperationalRadarChart({
                 y1={center}
                 x2={point.x}
                 y2={point.y}
-                className="stroke-border"
+                className={isDark ? "stroke-primary-foreground/12" : "stroke-border"}
                 strokeWidth="1"
               />
             );
@@ -104,15 +107,15 @@ export function OperationalRadarChart({
         <polygon
           points={pointsToString(currentPoints)}
           fill="#6f6258"
-          fillOpacity="0.12"
-          stroke="#8a7b70"
-          strokeOpacity="0.52"
+          fillOpacity={isDark ? "0.18" : "0.12"}
+          stroke={isDark ? "#b8aa9c" : "#8a7b70"}
+          strokeOpacity={isDark ? "0.44" : "0.52"}
           strokeWidth="2"
         />
         <polygon
           points={pointsToString(targetPoints)}
           fill="var(--primary)"
-          fillOpacity="0.18"
+          fillOpacity={isDark ? "0.3" : "0.18"}
           stroke="var(--primary)"
           strokeWidth="2.5"
         />
@@ -134,16 +137,26 @@ export function OperationalRadarChart({
             y={y}
             textAnchor={labelAnchor(x)}
             dominantBaseline="middle"
-            className="fill-foreground text-[13px] font-medium"
+            className={cn(
+              "text-[13px] font-medium",
+              isDark ? "fill-[var(--gralith-dark-text)]" : "fill-foreground",
+            )}
           >
             {label}
           </text>
         ))}
       </svg>
 
-      <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+      <div
+        className={cn(
+          "mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm",
+          isDark
+            ? "text-[var(--gralith-dark-text-secondary)]"
+            : "text-muted-foreground",
+        )}
+      >
         <div className="flex items-center gap-2">
-          <span className="size-3 rounded-sm bg-[#6f6258]/20 ring-1 ring-[#8a7b70]/45" />
+          <span className="size-3 rounded-sm bg-[#6f6258]/25 ring-1 ring-[#b8aa9c]/45" />
           <span>Estado actual</span>
         </div>
         <div className="flex items-center gap-2">
@@ -154,4 +167,3 @@ export function OperationalRadarChart({
     </figure>
   );
 }
-

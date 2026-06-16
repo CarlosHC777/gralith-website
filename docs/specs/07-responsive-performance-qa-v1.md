@@ -97,44 +97,6 @@ git commit -m "visual responsive performance qa v1"
 git push -u origin visual-responsive-performance-qa-v1
 ```
 
-## Prompt for Codex
 
-```txt
-Read AGENTS.md.
 
-Implement Phase 7 — Responsive, Performance & QA V1.
 
-Goal:
-Perform final QA and polish after the visual narrative phases. Do not introduce new design concepts.
-
-Tasks:
-1. Review all pages:
-   - /
-   - /despachos-juridicos
-   - /automatizacion-de-procesos
-   - /contacto
-2. Check responsive widths:
-   - 390px
-   - 430px
-   - 768px
-   - 1024px
-   - desktop
-3. Fix horizontal overflow.
-4. Verify backgrounds stay behind content.
-5. Verify motion respects reduced motion.
-6. Verify laptop/mockups scale correctly.
-7. Verify CTAs are visible.
-8. Verify contact form still loads and /api/contact was not changed.
-9. Run npm run lint and npm run build.
-10. Prepare a final report with QA checklist.
-
-Do not touch .env.local, Resend, DNS, analytics or deployment config.
-
-Final report:
-- fixes made
-- routes checked
-- responsive breakpoints checked
-- accessibility/reduced motion notes
-- lint/build result
-- ready/not ready for merge
-```

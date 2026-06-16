@@ -11,6 +11,7 @@ type SplitHeadlineProps = ComponentPropsWithoutRef<"h2"> & {
   text?: string;
   lines?: string[];
   delay?: number;
+  initialVisible?: boolean;
   once?: boolean;
 };
 
@@ -19,11 +20,15 @@ export function SplitHeadline({
   text,
   lines,
   delay = 0,
+  initialVisible = false,
   once = true,
   className,
   ...props
 }: SplitHeadlineProps) {
-  const { ref, isVisible } = useMotionInView<HTMLHeadingElement>({ once });
+  const { ref, isVisible } = useMotionInView<HTMLHeadingElement>({
+    initialVisible,
+    once,
+  });
   const headlineLines = lines ?? (text ? [text] : []);
   const accessibleText = text ?? headlineLines.join(" ");
 

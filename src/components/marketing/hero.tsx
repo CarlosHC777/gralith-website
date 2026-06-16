@@ -18,6 +18,7 @@ type HeroProps = {
   visual?: ReactNode;
   showBrandLogo?: boolean;
   showHexBackground?: boolean;
+  variant?: "light" | "dark";
 };
 
 export function Hero({
@@ -31,17 +32,24 @@ export function Hero({
   visual,
   showBrandLogo = false,
   showHexBackground = false,
+  variant = "light",
 }: HeroProps) {
+  const isDark = variant === "dark";
+
   return (
     <section
       className={cn(
         "relative overflow-hidden px-4 pb-16 sm:px-6 md:pb-28",
+        isDark && "bg-[var(--gralith-dark-base)] text-[var(--gralith-dark-text)]",
         showBrandLogo ? "pt-10 md:pt-20" : "pt-14 md:pt-28",
       )}
     >
       {showHexBackground ? <GralithHexagonBackground variant="heroWide" /> : null}
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <div className="relative z-10">
+      {isDark ? (
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(circle_at_52%_10%,var(--gralith-garnet-glow-soft),transparent_58%)]" />
+      ) : null}
+      <div className="relative z-10 mx-auto grid w-full max-w-[20.5rem] min-w-0 gap-12 sm:max-w-6xl lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
+        <div className="relative z-10 min-w-0">
           {showBrandLogo ? (
             <div className="mb-4 flex justify-start md:mb-5">
               <Image
@@ -55,18 +63,43 @@ export function Hero({
               />
             </div>
           ) : eyebrow ? (
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            <p
+              className={cn(
+                "mb-5 text-xs font-semibold uppercase tracking-[0.2em]",
+                isDark ? "text-[var(--gralith-garnet-muted)]" : "text-primary",
+              )}
+            >
               {eyebrow}
             </p>
           ) : null}
-          <h1 className="max-w-4xl font-heading text-4xl font-semibold leading-[1.06] tracking-normal text-foreground sm:text-5xl md:text-6xl md:leading-[1.02]">
+          <h1
+            className={cn(
+              "max-w-[20.5rem] break-words font-heading text-3xl font-semibold leading-[1.08] tracking-normal sm:max-w-4xl sm:text-5xl md:text-6xl md:leading-[1.02]",
+              isDark ? "text-[var(--gralith-dark-text)]" : "text-foreground",
+            )}
+          >
             {title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
+          <p
+            className={cn(
+              "mt-6 max-w-[20.5rem] text-base leading-7 sm:max-w-2xl md:text-lg md:leading-8",
+              isDark
+                ? "text-[var(--gralith-dark-text-secondary)]"
+                : "text-muted-foreground",
+            )}
+          >
             {description}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="h-11 w-full rounded-md px-5 sm:w-auto">
+            <Button
+              asChild
+              size="lg"
+              className={cn(
+                "h-11 w-full rounded-md px-5 sm:w-auto",
+                isDark &&
+                  "bg-[var(--gralith-garnet)] text-[var(--gralith-dark-text)] shadow-[0_18px_55px_-34px_var(--gralith-garnet)] hover:bg-[var(--gralith-garnet-muted)]",
+              )}
+            >
               <Link href={ctaHref}>
                 {ctaLabel}
                 <ArrowRight data-icon="inline-end" className="size-4" />
@@ -77,7 +110,11 @@ export function Hero({
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-11 w-full rounded-md px-5 sm:w-auto"
+                className={cn(
+                  "h-11 w-full rounded-md px-5 sm:w-auto",
+                  isDark &&
+                    "border-[var(--gralith-dark-border)] bg-transparent text-[var(--gralith-dark-text)] hover:bg-[var(--gralith-dark-elevated)] hover:text-[var(--gralith-dark-text)]",
+                )}
               >
                 <Link href={secondaryHref}>{secondaryLabel}</Link>
               </Button>

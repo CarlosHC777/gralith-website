@@ -43,7 +43,7 @@ export function HeroProcessFlow() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--gralith-dark-text-muted)]">
             Entrada
           </p>
-          <StaggerContainer className="grid gap-2" delay={80} step={55}>
+          <StaggerContainer className="grid gap-2" delay={80} initialVisible step={55}>
             {inputs.map(({ label, icon: Icon }) => (
               <FlowNode
                 key={label}
@@ -54,7 +54,7 @@ export function HeroProcessFlow() {
           </StaggerContainer>
         </div>
 
-        <SectionReveal delay={300}>
+        <SectionReveal delay={300} initialVisible>
           <div className="relative z-10 mx-auto grid min-h-28 w-full place-items-center rounded-lg border border-[var(--gralith-dark-border-garnet)] bg-[linear-gradient(135deg,var(--gralith-garnet),var(--gralith-garnet-deep))] px-5 py-6 text-center text-[var(--gralith-dark-text)] shadow-[0_22px_70px_-42px_var(--gralith-garnet)] md:min-h-36 md:w-36">
             <div className="pointer-events-none absolute inset-2 rounded-md border border-[rgba(247,241,232,0.08)]" />
             <div>
@@ -72,7 +72,7 @@ export function HeroProcessFlow() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--gralith-dark-text-muted)] md:text-right">
             Salida
           </p>
-          <StaggerContainer className="grid gap-2" delay={360} step={55}>
+          <StaggerContainer className="grid gap-2" delay={360} initialVisible step={55}>
             {outputs.map(({ label, icon: Icon }) => (
               <FlowNode
                 key={label}
