@@ -15,11 +15,11 @@ export const metadata = createPageMetadata({
 
 export default function AutomationPage() {
   return (
-    <>
+    <div className="overflow-x-hidden bg-[var(--gralith-dark-base)]">
       <AutomationHeroSection />
       <AutomationApproachSection />
       <AutomationProcessSection />
       <AutomationCTASection />
-    </>
+    </div>
   );
 }

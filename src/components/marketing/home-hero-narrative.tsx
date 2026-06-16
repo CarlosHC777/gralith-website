@@ -13,7 +13,7 @@ export function HomeHeroNarrative() {
     <DarkSectionBackdrop
       variant="hero"
       className="px-4 pb-14 pt-16 sm:px-6 md:pb-20 md:pt-20"
-      contentClassName="mx-auto max-w-6xl"
+      contentClassName="mx-auto w-full max-w-[calc(100vw-2rem)] min-w-0 sm:max-w-6xl"
     >
       <div className="grid gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
         <div className="relative z-10 min-w-0">
@@ -25,11 +25,11 @@ export function HomeHeroNarrative() {
               "la operación diaria",
               "del despacho.",
             ]}
-            className="max-w-4xl font-heading text-4xl font-semibold leading-[1.06] tracking-normal text-[var(--gralith-dark-text)] sm:text-5xl md:text-6xl md:leading-[1.02]"
+            className="max-w-[calc(100vw-2rem)] font-heading text-4xl font-semibold leading-[1.06] tracking-normal text-[var(--gralith-dark-text)] sm:max-w-4xl sm:text-5xl md:text-6xl md:leading-[1.02]"
           />
 
           <SectionReveal delay={120}>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--gralith-dark-text-secondary)] md:text-lg md:leading-8">
+            <p className="mt-6 max-w-[calc(100vw-2rem)] text-base leading-7 text-[var(--gralith-dark-text-secondary)] sm:max-w-2xl md:text-lg md:leading-8">
               Centraliza expedientes, documentos, agenda y actividad en una
               vista clara para que el equipo trabaje con menos fricción y más
               trazabilidad.

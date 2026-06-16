@@ -30,17 +30,22 @@ export const automationFeatures = [
 export const automationProcessSteps = [
   [
     "1",
-    "Diagnosticar",
+    "Diagnóstico",
     "Entendemos el flujo actual, los sistemas existentes y las pérdidas de tiempo.",
   ],
   [
     "2",
-    "Diseñar",
+    "Diseño del flujo",
     "Definimos una arquitectura mínima que el equipo pueda adoptar y operar.",
   ],
   [
     "3",
-    "Implementar",
-    "Construimos, probamos y ajustamos con usuarios reales y métricas concretas.",
+    "Automatización inicial",
+    "Construimos una primera versión funcional enfocada en reducir fricción manual.",
+  ],
+  [
+    "4",
+    "Seguimiento y ajuste",
+    "Ajustamos con base en uso real, responsables y métricas concretas.",
   ],
 ];

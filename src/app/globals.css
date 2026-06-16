@@ -144,10 +144,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply overflow-x-hidden bg-background text-foreground;
   }
   html {
-    @apply bg-background font-sans;
+    @apply overflow-x-hidden bg-background font-sans;
   }
   ::selection {
     @apply bg-primary text-primary-foreground;

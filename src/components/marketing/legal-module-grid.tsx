@@ -77,15 +77,15 @@ export function LegalModuleGrid() {
           key={title}
           delay={index * 65}
           className={cn(
-            "rounded-lg border border-border bg-card p-5 shadow-sm md:min-h-52",
+            "rounded-lg border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-elevated)] p-5 text-[var(--gralith-dark-text)] shadow-[0_18px_60px_-54px_#000] md:min-h-52",
             className
           )}
         >
-          <div className="flex size-10 items-center justify-center rounded-md bg-accent text-primary">
+          <div className="flex size-10 items-center justify-center rounded-md bg-[var(--gralith-garnet-soft-fill)] text-[var(--gralith-garnet-muted)]">
             <Icon className="size-5" aria-hidden="true" />
           </div>
           <h3 className="mt-7 text-lg font-semibold tracking-normal">{title}</h3>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+          <p className="mt-3 text-sm leading-6 text-[var(--gralith-dark-text-secondary)]">
             {description}
           </p>
         </SectionReveal>

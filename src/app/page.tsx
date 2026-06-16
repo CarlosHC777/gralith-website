@@ -1,6 +1,7 @@
 import {
   HomeCTASection,
   HomeDashboardSection,
+  HomeDiagnosticSection,
   HomeDynamicSection,
   HomeHeroSection,
   HomeLegalVerticalSection,
@@ -23,6 +24,7 @@ export default function Home() {
       <HomeDashboardSection />
       <HomeValueSection />
       <HomeDynamicSection />
+      <HomeDiagnosticSection />
       <HomeLegalVerticalSection />
       <HomeWorkProcessSection />
       <HomeCTASection />

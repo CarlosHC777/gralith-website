@@ -14,9 +14,9 @@ const nodes = [
 
 export function LegalSystemMap() {
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-card p-4 shadow-[0_24px_80px_-58px_var(--primary)] sm:p-5">
+    <div className="overflow-hidden rounded-lg border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-elevated)] p-4 text-[var(--gralith-dark-text)] shadow-[0_24px_90px_-64px_var(--gralith-garnet)] sm:p-5">
       <SectionReveal variant="scale">
-        <div className="rounded-md bg-primary px-4 py-5 text-primary-foreground">
+        <div className="rounded-md border border-[var(--gralith-dark-border-garnet)] bg-[linear-gradient(135deg,var(--gralith-garnet),var(--gralith-garnet-deep))] px-4 py-5 text-[var(--gralith-dark-text)]">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-75">
             Sistema central
           </p>
@@ -31,9 +31,9 @@ export function LegalSystemMap() {
         {nodes.map(({ label, icon: Icon }) => (
           <div
             key={label}
-            className="flex items-center gap-3 rounded-md border border-border bg-background/75 px-3 py-3 text-sm"
+            className="flex items-center gap-3 rounded-md border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-panel)] px-3 py-3 text-sm text-[var(--gralith-dark-text-secondary)]"
           >
-            <Icon className="size-4 text-primary" aria-hidden="true" />
+            <Icon className="size-4 text-[var(--gralith-garnet-muted)]" aria-hidden="true" />
             <span>{label}</span>
           </div>
         ))}

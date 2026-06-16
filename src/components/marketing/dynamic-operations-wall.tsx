@@ -22,33 +22,40 @@ const scatteredInputs = [
 
 const traceableOutputs = [
   { label: "Expedientes", detail: "casos y documentos centralizados", icon: FolderKanban },
-  { label: "Tareas", detail: "responsables y fechas visibles", icon: Workflow },
-  { label: "Auditoría", detail: "historial de cambios y acciones", icon: ShieldCheck },
-  { label: "Búsqueda", detail: "contexto localizable al instante", icon: Search },
+  { label: "Tareas", detail: "responsables y próximos pasos", icon: Workflow },
+  { label: "Auditoría", detail: "historial de cambios y decisiones", icon: ShieldCheck },
+  { label: "Búsqueda", detail: "contexto localizable en segundos", icon: Search },
 ];
 
 export function DynamicOperationsWall() {
   return (
     <section className="relative overflow-hidden border-y border-[var(--gralith-dark-border-garnet)] bg-[var(--gralith-garnet-deep)] px-4 py-16 text-primary-foreground sm:px-6 md:py-24">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,var(--gralith-garnet-glow-soft),transparent_36%)]" />
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.76fr_1.24fr] lg:items-center">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(247,241,232,0.18),transparent)]" />
+      <div className="relative z-10 mx-auto grid max-w-6xl min-w-0 gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
         <SectionReveal>
           <SectionHeading
-            eyebrow="Dispersión → sistema → operación trazable"
-            title="Lo que entra por muchos canales termina en una operación verificable."
-            description="Gralith transforma mensajes, correos, archivos y agenda en expedientes, tareas, búsqueda y auditoría para que el equipo trabaje desde una fuente común."
+            eyebrow="De dispersión a operación trazable"
+            title="La información entra por muchos canales. La operación debe responder desde uno."
+            description="Gralith toma señales operativas dispersas y las convierte en vistas, responsables y trazabilidad para que el equipo trabaje con menos fricción."
             className="[&_h2]:text-primary-foreground [&_p:first-child]:text-primary-foreground/70 [&_p:last-child]:text-primary-foreground/74"
           />
         </SectionReveal>
 
-        <div className="relative overflow-hidden rounded-lg border border-primary-foreground/16 bg-[rgba(7,7,8,0.28)] p-4 shadow-[0_28px_100px_-70px_#000] sm:p-6">
-          <div className="pointer-events-none absolute left-[24%] right-[24%] top-1/2 z-0 hidden h-px bg-primary-foreground/18 lg:block" />
-          <div className="pointer-events-none absolute bottom-[calc(50%-4rem)] left-[calc(50%-1px)] top-[calc(50%-4rem)] z-0 hidden w-px bg-primary-foreground/12 lg:block" />
+        <div className="relative min-w-0 overflow-hidden rounded-lg border border-primary-foreground/16 bg-[rgba(7,7,8,0.32)] p-4 shadow-[0_28px_100px_-70px_#000] sm:p-6">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[22%] right-[22%] top-1/2 z-0 hidden h-px bg-[linear-gradient(90deg,transparent,rgba(247,241,232,0.22),rgba(138,42,52,0.55),rgba(247,241,232,0.22),transparent)] lg:block"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-[calc(50%-4rem)] left-[calc(50%-1px)] top-[calc(50%-4rem)] z-0 hidden w-px bg-primary-foreground/12 lg:block"
+          />
 
-          <div className="relative z-10 grid gap-4 lg:grid-cols-[0.88fr_1fr_0.88fr] lg:items-center">
-            <div>
+          <div className="relative z-10 grid min-w-0 gap-4 lg:grid-cols-[0.88fr_1fr_0.88fr] lg:items-center">
+            <div className="min-w-0">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/68">
-                Dispersión
+                Entrada
               </p>
               <StaggerContainer className="grid gap-3" delay={80} step={65}>
                 {scatteredInputs.map(({ label, detail, icon: Icon }) => (
@@ -72,8 +79,13 @@ export function DynamicOperationsWall() {
               </StaggerContainer>
             </div>
 
+            <div
+              aria-hidden="true"
+              className="mx-auto h-8 w-px bg-primary-foreground/18 lg:hidden"
+            />
+
             <SectionReveal variant="scale" delay={160} className="relative z-20">
-              <div className="rounded-lg border border-primary-foreground/18 bg-[var(--gralith-dark-elevated)] p-4 text-[var(--gralith-dark-text)] shadow-[0_24px_80px_-54px_#000] sm:p-5">
+              <div className="rounded-lg border border-primary-foreground/20 bg-[var(--gralith-dark-elevated)] p-4 text-[var(--gralith-dark-text)] shadow-[0_24px_80px_-54px_#000] sm:p-5">
                 <div className="border-b border-[var(--gralith-dark-border)] pb-4 text-center">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--gralith-garnet-muted)]">
                     Sistema central
@@ -91,6 +103,7 @@ export function DynamicOperationsWall() {
                     ["Entrada registrada", "cada señal queda ligada a un expediente"],
                     ["Responsable asignado", "el equipo sabe qué sigue y quién actúa"],
                     ["Historial visible", "la operación conserva evidencia consultable"],
+                    ["Contexto localizado", "la información se encuentra sin saltos"],
                   ].map(([label, detail], index) => (
                     <div
                       key={label}
@@ -109,7 +122,12 @@ export function DynamicOperationsWall() {
               </div>
             </SectionReveal>
 
-            <div>
+            <div
+              aria-hidden="true"
+              className="mx-auto h-8 w-px bg-primary-foreground/18 lg:hidden"
+            />
+
+            <div className="min-w-0">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/68 lg:text-right">
                 Operación trazable
               </p>

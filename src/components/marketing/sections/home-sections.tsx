@@ -2,9 +2,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { DynamicOperationsWall } from "@/components/marketing/dynamic-operations-wall";
-import { FeatureBentoGrid } from "@/components/marketing/feature-bento-grid";
 import { HomeHeroNarrative } from "@/components/marketing/home-hero-narrative";
 import { LaptopShowcaseSection } from "@/components/marketing/laptop-showcase-section";
+import { ProductCapabilityChapters } from "@/components/marketing/product-capability-chapters";
+import { DiagnosticVisualsSection } from "@/components/marketing/sections/diagnostic-visuals-section";
 import { CTASection } from "@/components/marketing/shared/cta-section";
 import { SectionHeading } from "@/components/marketing/shared/section-heading";
 import { WorkProcess } from "@/components/marketing/work-process";
@@ -22,16 +23,16 @@ export function HomeDashboardSection() {
 export function HomeValueSection() {
   return (
     <section className="overflow-hidden border-t border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-base)] px-4 py-16 sm:px-6 md:py-20">
-      <div className="mx-auto grid max-w-6xl min-w-0 gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+      <div className="mx-auto grid max-w-6xl min-w-0 gap-12">
         <SectionReveal>
           <SectionHeading
             eyebrow="Sistema operativo"
-            title="La operación deja de vivir en memoria, mensajes y hojas sueltas."
-            description="Gralith convierte procesos repetitivos en flujos claros: datos en un solo lugar, responsables visibles y seguimiento sin persecución manual."
+            title="Cada parte del despacho conectada a una operación más clara."
+            description="Gralith reúne expedientes, documentos, agenda, actividad y búsqueda para que el seguimiento diario no dependa de mensajes, memoria o carpetas dispersas."
             variant="dark"
           />
         </SectionReveal>
-        <FeatureBentoGrid />
+        <ProductCapabilityChapters />
       </div>
     </section>
   );
@@ -39,6 +40,10 @@ export function HomeValueSection() {
 
 export function HomeDynamicSection() {
   return <DynamicOperationsWall />;
+}
+
+export function HomeDiagnosticSection() {
+  return <DiagnosticVisualsSection />;
 }
 
 export function HomeLegalVerticalSection() {
