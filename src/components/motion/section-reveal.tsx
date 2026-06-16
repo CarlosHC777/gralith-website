@@ -13,7 +13,6 @@ type SectionRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
-  initialVisible?: boolean;
   once?: boolean;
   variant?: "up" | "scale";
 };
@@ -22,14 +21,10 @@ export function SectionReveal({
   children,
   className,
   delay = 0,
-  initialVisible = false,
   once = true,
   variant = "up",
 }: SectionRevealProps) {
-  const { ref, isVisible } = useMotionInView<HTMLDivElement>({
-    initialVisible,
-    once,
-  });
+  const { ref, isVisible } = useMotionInView<HTMLDivElement>({ once });
   const preset =
     variant === "scale" ? motionPresets.scaleReveal : motionPresets.reveal;
 

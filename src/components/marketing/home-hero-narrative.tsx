@@ -13,9 +13,9 @@ export function HomeHeroNarrative() {
     <DarkSectionBackdrop
       variant="hero"
       className="px-4 pb-14 pt-16 sm:px-6 md:pb-20 md:pt-20"
-      contentClassName="mx-auto w-full max-w-[20.5rem] min-w-0 sm:max-w-6xl"
+      contentClassName="mx-auto w-full max-w-[calc(100vw-2rem)] min-w-0 sm:max-w-6xl"
     >
-      <div className="grid w-full min-w-0 gap-12 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1.02fr)] lg:items-center">
+      <div className="grid gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
         <div className="relative z-10 min-w-0">
           <SplitHeadline
             as="h1"
@@ -25,11 +25,10 @@ export function HomeHeroNarrative() {
               "la operación diaria",
               "del despacho.",
             ]}
-            initialVisible
             className="max-w-[calc(100vw-2rem)] font-heading text-4xl font-semibold leading-[1.06] tracking-normal text-[var(--gralith-dark-text)] sm:max-w-4xl sm:text-5xl md:text-6xl md:leading-[1.02]"
           />
 
-          <SectionReveal delay={120} initialVisible>
+          <SectionReveal delay={120}>
             <p className="mt-6 max-w-[calc(100vw-2rem)] text-base leading-7 text-[var(--gralith-dark-text-secondary)] sm:max-w-2xl md:text-lg md:leading-8">
               Centraliza expedientes, documentos, agenda y actividad en una
               vista clara para que el equipo trabaje con menos fricción y más
@@ -41,7 +40,6 @@ export function HomeHeroNarrative() {
             className="mt-8 flex flex-col gap-3 sm:flex-row"
             childClassName="w-full sm:w-auto"
             delay={180}
-            initialVisible
             step={80}
           >
             <Button
@@ -67,7 +65,6 @@ export function HomeHeroNarrative() {
           <StaggerContainer
             className="mt-8 flex max-w-full flex-wrap gap-2"
             delay={260}
-            initialVisible
             step={60}
           >
             {["Expedientes visibles", "Agenda centralizada", "Auditoría trazable"].map(

@@ -17,7 +17,7 @@ export function Navbar() {
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <Link
             href="/"
-            className="flex items-center gap-3 rounded-md bg-[rgba(255,252,246,0.92)] px-2 py-1 shadow-[0_8px_24px_-20px_#000]"
+            className="flex items-center gap-3 rounded-sm bg-[rgba(255,252,246,0.92)] px-1.5 py-0.5 shadow-[0_8px_24px_-20px_#000]"
             aria-label="Gralith"
           >
             <Image

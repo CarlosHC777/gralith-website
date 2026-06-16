@@ -58,18 +58,12 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-lg border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-elevated)] p-5 text-[var(--gralith-dark-text)] shadow-[0_24px_90px_-70px_#000] sm:p-6 md:p-8"
+      className="rounded-lg border border-border bg-card p-5 sm:p-6 md:p-8"
     >
       <div className="grid gap-5">
         <label className="grid gap-2 text-sm font-medium">
           Nombre
-          <Input
-            name="name"
-            placeholder="Tu nombre"
-            autoComplete="name"
-            className="border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-base)] text-[var(--gralith-dark-text)] placeholder:text-[var(--gralith-dark-text-muted)]"
-            required
-          />
+          <Input name="name" placeholder="Tu nombre" autoComplete="name" required />
         </label>
         <label className="grid gap-2 text-sm font-medium">
           Correo
@@ -78,7 +72,6 @@ export function ContactForm() {
             type="email"
             placeholder="nombre@empresa.com"
             autoComplete="email"
-            className="border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-base)] text-[var(--gralith-dark-text)] placeholder:text-[var(--gralith-dark-text-muted)]"
             required
           />
         </label>
@@ -88,7 +81,6 @@ export function ContactForm() {
             name="company"
             placeholder="Nombre de la organización"
             autoComplete="organization"
-            className="border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-base)] text-[var(--gralith-dark-text)] placeholder:text-[var(--gralith-dark-text-muted)]"
           />
         </label>
         <label className="grid gap-2 text-sm font-medium">
@@ -96,14 +88,14 @@ export function ContactForm() {
           <Textarea
             name="message"
             placeholder="Describe el proceso, herramientas actuales y principal dolor operativo."
-            className="min-h-36 border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-base)] text-[var(--gralith-dark-text)] placeholder:text-[var(--gralith-dark-text-muted)]"
+            className="min-h-36"
             required
           />
         </label>
         <Button
           type="submit"
           size="lg"
-          className="h-11 rounded-md bg-[var(--gralith-garnet)] text-[var(--gralith-dark-text)] hover:bg-[var(--gralith-garnet-muted)]"
+          className="h-11 rounded-md"
           disabled={state === "loading"}
           aria-busy={state === "loading"}
         >
@@ -115,8 +107,8 @@ export function ContactForm() {
             aria-live="polite"
             className={
               state === "success"
-                ? "text-sm text-[var(--gralith-garnet-muted)]"
-                : "text-sm text-red-300"
+                ? "text-sm text-primary"
+                : "text-sm text-destructive"
             }
           >
             {feedback}

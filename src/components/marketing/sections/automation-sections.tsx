@@ -41,7 +41,7 @@ function AutomationSystemVisual() {
   return (
     <div className="overflow-hidden rounded-lg border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-elevated)] p-4 text-[var(--gralith-dark-text)] shadow-[0_24px_90px_-64px_var(--gralith-garnet)] sm:p-5">
       <div className="grid gap-4 md:grid-cols-[0.86fr_1fr_0.86fr] md:items-center">
-        <StaggerContainer className="grid gap-2" delay={80} initialVisible step={55}>
+        <StaggerContainer className="grid gap-2" delay={80} step={55}>
           {automationInputs.map(({ label, icon: Icon }) => (
             <div
               key={label}
@@ -53,7 +53,7 @@ function AutomationSystemVisual() {
           ))}
         </StaggerContainer>
 
-        <SectionReveal variant="scale" delay={180} initialVisible>
+        <SectionReveal variant="scale" delay={180}>
           <div className="rounded-md border border-[var(--gralith-dark-border-garnet)] bg-[linear-gradient(135deg,var(--gralith-garnet),var(--gralith-garnet-deep))] px-5 py-6 text-center text-[var(--gralith-dark-text)] shadow-[0_18px_60px_-38px_var(--gralith-garnet)]">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-75">
               Sistema interno
@@ -65,7 +65,7 @@ function AutomationSystemVisual() {
           </div>
         </SectionReveal>
 
-        <StaggerContainer className="grid gap-2" delay={260} initialVisible step={55}>
+        <StaggerContainer className="grid gap-2" delay={260} step={55}>
           {automationOutputs.map(({ label, icon: Icon }) => (
             <div
               key={label}

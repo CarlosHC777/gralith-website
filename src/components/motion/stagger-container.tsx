@@ -15,7 +15,6 @@ type StaggerContainerProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
   childClassName?: string;
   delay?: number;
-  initialVisible?: boolean;
   step?: number;
   once?: boolean;
 };
@@ -24,16 +23,12 @@ export function StaggerContainer({
   children,
   childClassName,
   delay = 0,
-  initialVisible = false,
   step = motionPresets.reveal.delayStep,
   once = true,
   className,
   ...props
 }: StaggerContainerProps) {
-  const { ref, isVisible } = useMotionInView<HTMLDivElement>({
-    initialVisible,
-    once,
-  });
+  const { ref, isVisible } = useMotionInView<HTMLDivElement>({ once });
 
   return (
     <div ref={ref} className={className} {...props}>
@@ -58,3 +53,4 @@ export function StaggerContainer({
     </div>
   );
 }
+

@@ -5,16 +5,14 @@ import { useEffect, useRef, useState } from "react";
 import { motionPresets, reducedMotionQuery } from "@/components/motion/motion-presets";
 
 type MotionInViewOptions = {
-  initialVisible?: boolean;
   once?: boolean;
 };
 
 export function useMotionInView<TElement extends Element>({
-  initialVisible = false,
   once = true,
 }: MotionInViewOptions = {}) {
   const ref = useRef<TElement>(null);
-  const [isVisible, setIsVisible] = useState(initialVisible);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
@@ -52,3 +50,4 @@ export function useMotionInView<TElement extends Element>({
 
   return { ref, isVisible };
 }
+

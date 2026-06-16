@@ -15,7 +15,7 @@ const nodes = [
 export function LegalSystemMap() {
   return (
     <div className="overflow-hidden rounded-lg border border-[var(--gralith-dark-border)] bg-[var(--gralith-dark-elevated)] p-4 text-[var(--gralith-dark-text)] shadow-[0_24px_90px_-64px_var(--gralith-garnet)] sm:p-5">
-      <SectionReveal variant="scale" initialVisible>
+      <SectionReveal variant="scale">
         <div className="rounded-md border border-[var(--gralith-dark-border-garnet)] bg-[linear-gradient(135deg,var(--gralith-garnet),var(--gralith-garnet-deep))] px-4 py-5 text-[var(--gralith-dark-text)]">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] opacity-75">
             Sistema central
@@ -27,12 +27,7 @@ export function LegalSystemMap() {
         </div>
       </SectionReveal>
 
-      <StaggerContainer
-        className="mt-4 grid gap-3 sm:grid-cols-2"
-        delay={120}
-        initialVisible
-        step={55}
-      >
+      <StaggerContainer className="mt-4 grid gap-3 sm:grid-cols-2" delay={120} step={55}>
         {nodes.map(({ label, icon: Icon }) => (
           <div
             key={label}

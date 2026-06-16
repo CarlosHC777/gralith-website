@@ -39,7 +39,7 @@ export function SectionHeading({
       ) : null}
       <h2
         className={cn(
-          "max-w-[20.5rem] break-words font-heading text-3xl font-semibold tracking-normal sm:max-w-full md:text-4xl",
+          "max-w-full break-words font-heading text-3xl font-semibold tracking-normal md:text-4xl",
           isDark ? "text-[var(--gralith-dark-text)]" : "text-foreground",
         )}
       >

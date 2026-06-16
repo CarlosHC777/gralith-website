@@ -48,8 +48,8 @@ export function Hero({
       {isDark ? (
         <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(circle_at_52%_10%,var(--gralith-garnet-glow-soft),transparent_58%)]" />
       ) : null}
-      <div className="relative z-10 mx-auto grid w-full max-w-[20.5rem] min-w-0 gap-12 sm:max-w-6xl lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
-        <div className="relative z-10 min-w-0">
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="relative z-10">
           {showBrandLogo ? (
             <div className="mb-4 flex justify-start md:mb-5">
               <Image
@@ -74,7 +74,7 @@ export function Hero({
           ) : null}
           <h1
             className={cn(
-              "max-w-[20.5rem] break-words font-heading text-3xl font-semibold leading-[1.08] tracking-normal sm:max-w-4xl sm:text-5xl md:text-6xl md:leading-[1.02]",
+              "max-w-4xl font-heading text-4xl font-semibold leading-[1.06] tracking-normal sm:text-5xl md:text-6xl md:leading-[1.02]",
               isDark ? "text-[var(--gralith-dark-text)]" : "text-foreground",
             )}
           >
@@ -82,7 +82,7 @@ export function Hero({
           </h1>
           <p
             className={cn(
-              "mt-6 max-w-[20.5rem] text-base leading-7 sm:max-w-2xl md:text-lg md:leading-8",
+              "mt-6 max-w-2xl text-base leading-7 md:text-lg md:leading-8",
               isDark
                 ? "text-[var(--gralith-dark-text-secondary)]"
                 : "text-muted-foreground",
